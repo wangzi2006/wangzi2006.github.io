@@ -100,3 +100,20 @@ author_profile: true
         crossorigin="anonymous"
         async>
 </script>
+
+
+<script src="https://giscus.app/client.js"
+        data-repo="wangzi2006/wangzi2006.github.io"
+        data-repo-id="R_kgDOOzr5Bg"
+        data-category="Announcements"
+        data-category-id="DIC_kwDOOzr5Bs4Cq4eP"
+        data-mapping="pathname"
+        data-strict="0"
+        data-reactions-enabled="1"
+        data-emit-metadata="0"
+        data-input-position="bottom"
+        data-theme="preferred_color_scheme"
+        data-lang="zh-CN"
+        crossorigin="anonymous"
+        async>
+</script>

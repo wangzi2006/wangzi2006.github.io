@@ -19,8 +19,10 @@ In my free time, I enjoy working on various personal projects just for fun. Curr
 The website is still under construction. Codes and course notes are uploading quickly.
 
 <h2>Pageviews</h2>
-在你修改之前, 这里不是你的网站的访问信息
 <script type='text/javascript' id='mapmyvisitors' src='https://mapmyvisitors.com/map.js?cl=ffffff&w=a&t=tt&d=TotgUc16tGNawSb8uG8ApnWC8tMLjeLuiR0R0d9Wb8w'></script>
+
+<script type="text/javascript" id="mapmyvisitors" src="//mapmyvisitors.com/map.js?d=SU4oy-kZpmJEJbJBdLOoXSyfcRsCUYY2IGDrKMipwpE&cl=ffffff&w=a"></script>
+
 <h2>Contact me</h2>
 
 

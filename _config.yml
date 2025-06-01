@@ -7,7 +7,7 @@
 
 # Site Settings
 locale                   : "en-US"
-title                    : "-Ceva's site"
+title                    : "Ceva's site"
 title_separator          : "-"
 name                     : &name "xker "
 description              : &description "111"
@@ -80,7 +80,7 @@ analytics:
 
 # Site Author
 author:
-  name             : "Wang Zi"
+  name             : "Zi Wang(王梓)"
   avatar           : "bilibili-picture.png"
   bio              : "Peking University"
   location         : "China Beijing"
