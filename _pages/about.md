@@ -8,9 +8,9 @@ redirect_from:
   - /about.html
 ---
 
-I'm a third year undergraduate student from [School of EECS](https://eecs.pku.edu.cn/), [Peking University](https://www.pku.edu.cn/), currently enrolled in the 22nd Turing Class. At the same time, I studied for a double degree in economics at the National School of Development.
+I'm a first year undergraduate student from [School of Mathematical Sciences](https://www.math.pku.edu.cn/index.htm), [Peking University](https://www.pku.edu.cn/), and I'm planning to pursue a career in statistics or biostatistics in the future.
 
-My research interests and skills are concentrated in the fields of ml, nlp, llms, etc. I am currently studying in Mr. Yizhou Wang's program.  <!--My research interest includes computer vision, computer graphics, machine learning, and computational photography.-->
+In my free time, I enjoy working on various personal projects just for fun. Currently, I'm working on creating posters for different works. I also plan to compose simple ukulele pieces, create math-related educational videos, and write interesting math essays.<!--My research interest includes computer vision, computer graphics, machine learning, and computational photography.-->
 
 <!--I am very fortunate to be advised by [Prof. XXX](https://www.XXX.com/) of XXX Lab from [School of Computer Science](https://cs.pku.edu.cn/), Peking University. I was advised by [Prof. XX](https://XXX.pku.edu.cn/) from [School of Computer Science](https://cs.pku.edu.cn/), Peking University.-->
 
@@ -24,5 +24,10 @@ The website is still under construction. Codes and course notes are uploading qu
 <h2>Contact me</h2>
 
 
-[Email](mailto:2200012917@stu.pku.edu.cn) / [Github](https://github.com/ICUlizhi) / [Wechat](../images/wechat.png) 
+Email: [2400010814@stu.pku.edu.cn](mailto:2400010814@stu.pku.edu.cn)
 
+Github: [wangzi2006](https://github.com/wangzi2006)
+
+Wechat: [QR code](../images/wechat.jpg)
+
+bilibili UID: [2025417514](https://space.bilibili.com/2025417514)
