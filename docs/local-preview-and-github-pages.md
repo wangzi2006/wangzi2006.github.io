@@ -2,6 +2,20 @@
 title: 本地预览与 GitHub Pages 发布
 ---
 
+
+如果以后要改名：
+
+```
+git config core.ignorecase false
+git mv -f content/current.md content/tmp.md
+git mv -f content/tmp.md content/Current.md
+git commit -m "chore: rename"
+git push
+```
+
+----
+
+
 本文用于记录两件事：
 1) 更新内容/配置后，如何在本地查看效果；
 2) 完成后，如何推送并发布到 GitHub Pages。
