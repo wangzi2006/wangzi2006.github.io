@@ -221,3 +221,22 @@ git push
   - 用户/组织站点：`https://<username>.github.io/`
 
 > 如果页面 404 或资源路径不对，优先检查 `baseUrl` 是否和你的 Pages 地址一致。
+
+### 2.8 常见报错：environment protection rules（部署被拒）
+
+如果 Actions 里出现类似报错：
+
+- `Branch "v4" is not allowed to deploy to github-pages due to environment protection rules.`
+- `The deployment was rejected or didn't satisfy other protection rules.`
+
+这是 GitHub 的 **Environment 保护规则** 把部署拦住了（不是 Quartz 构建失败）。按下面做：
+
+1. 打开仓库页面 → **Settings**
+2. 左侧找到 **Environments**
+3. 点击 **github-pages**
+4. 在 **Deployment branches**：
+  - 选择允许所有分支，或把 `v4` 加入允许列表
+5. 如果配置了 **Required reviewers**（需要人工审批）：先移除
+6. 重新运行工作流：仓库 → **Actions** → 选中 `Deploy Quartz site to GitHub Pages` → **Re-run jobs**
+
+> 如果你不小心创建了带保护规则的 `github-pages` 环境，最省事的做法通常是直接删除该 environment（垃圾桶图标），然后重新运行一次工作流，让 GitHub 自动重建正确的环境。

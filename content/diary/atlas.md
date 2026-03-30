@@ -1,6 +1,5 @@
 ---
 aliases:
-title: 日记汇总
 ---
 ## overture
 #### overture Day1 - Day19
