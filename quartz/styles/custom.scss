@@ -1,3 +1,85 @@
 @use "./base.scss";
 
 // put your custom CSS here!
+// ============================================
+// Quartz 自定义图片响应式样式
+// ============================================
+
+// 基础样式：所有响应式图片居中、自适应
+.img-landscape,
+.img-portrait,
+.img-square {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  height: auto;
+  // 平滑过渡效果（可选）
+  transition: width 0.2s ease;
+}
+
+// ============================================
+// 移动端（屏幕宽度 ≤ 767px）
+// 所有图片占满屏幕宽度
+// ============================================
+@media (max-width: 767px) {
+  .img-landscape,
+  .img-portrait,
+  .img-square {
+    width: 100% !important;
+  }
+}
+
+// ============================================
+// 平板端（屏幕宽度 768px ~ 1023px）
+// 介于手机和电脑之间，宽度适度调整
+// ============================================
+@media (min-width: 768px) and (max-width: 1023px) {
+  .img-landscape {
+    width: 90%;
+  }
+  
+  .img-portrait {
+    width: 50%;
+  }
+  
+  .img-square {
+    width: 70%;
+  }
+}
+
+// ============================================
+// PC 端（屏幕宽度 ≥ 1024px）
+// 横图宽、竖图窄、方图中等
+// ============================================
+@media (min-width: 1024px) {
+  .img-landscape {
+    width: 80%;      // 横图：较宽
+  }
+  
+  .img-portrait {
+    width: 40%;      // 竖图：较窄
+  }
+  
+  .img-square {
+    width: 55%;      // 方图：中等
+  }
+}
+
+// ============================================
+// 可选：为图片添加圆角和阴影（美观）
+// ============================================
+.img-landscape,
+.img-portrait,
+.img-square {
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+// 暗色模式下阴影调整
+[data-theme="dark"] {
+  .img-landscape,
+  .img-portrait,
+  .img-square {
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+  }
+}
