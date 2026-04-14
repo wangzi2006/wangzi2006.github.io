@@ -35,7 +35,7 @@
 // ============================================
 @media (min-width: 768px) and (max-width: 1023px) {
   .img-landscape {
-    width: 90%;
+    width: 80%;
   }
   
   .img-portrait {
@@ -43,7 +43,7 @@
   }
   
   .img-square {
-    width: 70%;
+    width: 65%;
   }
 }
 
@@ -53,7 +53,7 @@
 // ============================================
 @media (min-width: 1024px) {
   .img-landscape {
-    width: 80%;      // 横图：较宽
+    width: 60%;      // 横图：较宽
   }
   
   .img-portrait {
@@ -61,7 +61,7 @@
   }
   
   .img-square {
-    width: 55%;      // 方图：中等
+    width: 50%;      // 方图：中等
   }
 }
 
