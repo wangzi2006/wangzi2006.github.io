@@ -25,9 +25,13 @@ $$
 $$
 y_2(\varepsilon) \approx y_2(0) + \varepsilon y_2'(0) = \begin{pmatrix} 0 \\ 1 \end{pmatrix} + \varepsilon A \begin{pmatrix} 0 \\ 1 \end{pmatrix}
 $$
-采用线速场的想法，把两个位移量画出来，观察它们对面积的贡献。比如 $y_1$，它在纵坐标上的位移相当于将平行四边形的对边按照平行的线移动，不贡献面积；只有在横向位移才贡献面积，贡献率（随着时间 $\varepsilon$）恰好为位移速度 $a_{11}$ 乘以底边 $1$；同理， $y_2$ 位移量的贡献来源于纵向位移 $a_{22}$.  粗糙地说，极小的时间 $\varepsilon$ 后，面积
+
+采用线速场的想法，把两个位移量画出来，观察它们对面积的贡献。如下图所示。
+
+<div align="center"><img src="det Y(x).svg" style="height: 50vh"></div>
+
+比如 $y_1$，它在纵坐标上的位移相当于将平行四边形的对边按照平行的线移动，不贡献面积；只有在横向位移才贡献面积，贡献率（随着时间 $\varepsilon$）恰好为位移速度 $a_{11}$ 乘以底边 $1$；同理， $y_2$ 位移量的贡献来源于纵向位移 $a_{22}$.  粗糙地说，极小的时间 $\varepsilon$ 后，面积
 $$
 \det(Y(\varepsilon)) \approx (1 + a_{11} \varepsilon)(1 + a_{22} \varepsilon) = 1 + \varepsilon \  \text{tr}{A} + o(\varepsilon)
 $$
 由此给出微分等式的直观。
-<div align="center"><img src="det Y(x).svg" style="height: 50vh"></div>
