@@ -12,7 +12,7 @@ title: Current
 | 10-11 | SLE 讨论班 |                                                       | ~~电游通~~ |                            毛概                            |                           中国古典园林                            | 小荷讨论班 |
 - 我大概率不会去上 <span style="font-family: '楷体', 'KaiTi';">楷体字</span> 的课程；
 - FA 指 [Functional Analysis](https://binguimath.github.io/Courses/Course_2026S_FA.html)，由求真的[归斌](https://binguimath.github.io/)老师开课；
-- 常微分方程课后会随机刷新[[ode comment|我对课程内容的理解与补充]]（不过目前这里空空如也）；
+- 常微分方程课后会随机刷新[[ode comment|我对课程内容的理解与补充]]；
 
 
 
