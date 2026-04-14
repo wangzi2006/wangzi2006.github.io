@@ -1,0 +1,111 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 750 550" width="100%" height="100%">
+    <defs>
+        <!-- 箭头标记定义 -->
+        <marker id="arrow-black" viewBox="0 0 10 10" refX="10" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+            <path d="M 0 1 L 10 5 L 0 9 z" fill="#0f172a" />
+        </marker>
+        <marker id="arrow-red" viewBox="0 0 10 10" refX="10" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+            <path d="M 0 1 L 10 5 L 0 9 z" fill="#ef4444" />
+        </marker>
+        <marker id="arrow-green" viewBox="0 0 10 10" refX="10" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+            <path d="M 0 1 L 10 5 L 0 9 z" fill="#22c55e" />
+        </marker>
+        <marker id="arrow-purple" viewBox="0 0 10 10" refX="10" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+            <path d="M 0 1 L 10 5 L 0 9 z" fill="#a855f7" />
+        </marker>
+        <marker id="arrow-blue" viewBox="0 0 10 10" refX="10" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+            <path d="M 0 1 L 10 5 L 0 9 z" fill="#2563eb" />
+        </marker>
+        <marker id="arrow-gray" viewBox="0 0 10 10" refX="10" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+            <path d="M 0 1 L 10 5 L 0 9 z" fill="#64748b" />
+        </marker>
+    </defs>
+
+    <!-- 白色背景 -->
+    <rect width="100%" height="100%" fill="#ffffff"/>
+
+    <!-- 坐标轴及辅助线 -->
+    <line x1="100" y1="450" x2="650" y2="450" stroke="#cbd5e1" stroke-width="2"/>
+    <line x1="150" y1="500" x2="150" y2="50" stroke="#cbd5e1" stroke-width="2"/>
+    <text x="660" y="455" font-family="sans-serif" font-size="14" fill="#64748b" font-style="italic">x₁</text>
+    <text x="145" y="40" font-family="sans-serif" font-size="14" fill="#64748b" font-style="italic">x₂</text>
+
+    <!-- 原始面积框架辅助线 -->
+    <line x1="400" y1="450" x2="400" y2="150" stroke="#cbd5e1" stroke-width="1.5" stroke-dasharray="4,4"/>
+    <line x1="150" y1="200" x2="450" y2="200" stroke="#cbd5e1" stroke-width="1.5" stroke-dasharray="4,4"/>
+
+    <!-- ================= 核心面积区块 ================= -->
+
+    <!-- 1. 初始单位正方形 -->
+    <rect x="150" y="200" width="250" height="250" fill="#e2e8f0" stroke="#94a3b8" stroke-width="2" opacity="0.8"/>
+    <text x="275" y="315" font-family="sans-serif" font-size="20" fill="#334155" text-anchor="middle" font-weight="bold">初始 Y(0) = I₂</text>
+    <text x="275" y="345" font-family="sans-serif" font-size="18" fill="#334155" text-anchor="middle">面积 = 1</text>
+
+    <!-- 2. 横向延伸面积 (y1 的 a11 贡献) -->
+    <rect x="400" y="200" width="50" height="250" fill="#fca5a5" opacity="0.6"/>
+    <text x="425" y="325" font-family="sans-serif" font-size="16" fill="#b91c1c" text-anchor="middle" transform="rotate(90, 425, 325)">+ ε a₁₁ (横向面积贡献)</text>
+
+    <!-- 3. 纵向延伸面积 (y2 的 a22 贡献) -->
+    <rect x="150" y="150" width="250" height="50" fill="#86efac" opacity="0.6"/>
+    <text x="275" y="180" font-family="sans-serif" font-size="16" fill="#15803d" text-anchor="middle">+ ε a₂₂ (纵向面积贡献)</text>
+
+    <!-- 4. 高阶小量面积角 -->
+    <rect x="400" y="150" width="50" height="50" fill="#fde047" opacity="0.6"/>
+    <text x="425" y="180" font-family="sans-serif" font-size="14" fill="#a16207" text-anchor="middle">o(ε)</text>
+
+    <!-- ================= 真实演化后的平行四边形轮廓 ================= -->
+    <!-- 顶点: (150,450), y1(ε): (450,410), y1+y2: (480,110), y2(ε): (180,150) -->
+    <polygon points="150,450 450,410 480,110 180,150" fill="none" stroke="#2563eb" stroke-width="2.5" stroke-dasharray="8,4"/>
+
+
+    <!-- ================= 向量与位移箭头 ================= -->
+
+    <!-- 初始向量 y1(0), y2(0) -->
+    <line x1="150" y1="450" x2="400" y2="450" stroke="#0f172a" stroke-width="3" marker-end="url(#arrow-black)"/>
+    <line x1="150" y1="450" x2="150" y2="200" stroke="#0f172a" stroke-width="3" marker-end="url(#arrow-black)"/>
+    <text x="350" y="470" font-family="sans-serif" font-size="18" font-weight="bold" font-style="italic">y₁(0)</text>
+    <text x="105" y="250" font-family="sans-serif" font-size="18" font-weight="bold" font-style="italic">y₂(0)</text>
+
+    <!-- y1 的位移拆解 (红色水平延伸，紫色垂直剪切) -->
+    <line x1="400" y1="450" x2="450" y2="450" stroke="#ef4444" stroke-width="2.5" marker-end="url(#arrow-red)"/>
+    <line x1="450" y1="450" x2="450" y2="410" stroke="#a855f7" stroke-width="2.5" marker-end="url(#arrow-purple)"/>
+    <text x="425" y="470" font-family="sans-serif" font-size="15" fill="#ef4444" text-anchor="middle" font-weight="bold">ε a₁₁</text>
+    <text x="458" y="435" font-family="sans-serif" font-size="15" fill="#a855f7" font-weight="bold">ε a₂₁</text>
+
+    <!-- y2 的位移拆解 (绿色垂直延伸，紫色水平剪切) -->
+    <line x1="150" y1="200" x2="150" y2="150" stroke="#22c55e" stroke-width="2.5" marker-end="url(#arrow-green)"/>
+    <line x1="150" y1="150" x2="180" y2="150" stroke="#a855f7" stroke-width="2.5" marker-end="url(#arrow-purple)"/>
+    <text x="140" y="180" font-family="sans-serif" font-size="15" fill="#22c55e" text-anchor="end" font-weight="bold">ε a₂₂</text>
+    <text x="165" y="142" font-family="sans-serif" font-size="15" fill="#a855f7" text-anchor="middle" font-weight="bold">ε a₁₂</text>
+
+    <!-- 演化后的新向量 y1(ε), y2(ε) -->
+    <line x1="150" y1="450" x2="450" y2="410" stroke="#2563eb" stroke-width="2" marker-end="url(#arrow-blue)"/>
+    <line x1="150" y1="450" x2="180" y2="150" stroke="#2563eb" stroke-width="2" marker-end="url(#arrow-blue)"/>
+    <text x="460" y="405" font-family="sans-serif" font-size="16" fill="#2563eb" font-weight="bold" font-style="italic">y₁(ε)</text>
+    <text x="190" y="140" font-family="sans-serif" font-size="16" fill="#2563eb" font-weight="bold" font-style="italic">y₂(ε)</text>
+
+
+    <!-- ================= 几何剪切过程说明 (揭示为何剪切不改变一阶面积) ================= -->
+    
+    <!-- 右上角位移拆解 (同时受两个剪切影响) -->
+    <line x1="450" y1="150" x2="480" y2="150" stroke="#a855f7" stroke-width="2" stroke-dasharray="3,3" marker-end="url(#arrow-purple)"/>
+    <line x1="480" y1="150" x2="480" y2="110" stroke="#a855f7" stroke-width="2" stroke-dasharray="3,3" marker-end="url(#arrow-purple)"/>
+    <text x="465" y="142" font-family="sans-serif" font-size="13" fill="#a855f7" text-anchor="middle">ε a₁₂</text>
+    <text x="488" y="135" font-family="sans-serif" font-size="13" fill="#a855f7">ε a₂₁</text>
+
+    <!-- 解释说明：纵向剪切 -->
+    <path d="M 540 280 Q 480 280 468 260" stroke="#64748b" stroke-width="1.5" marker-end="url(#arrow-gray)" fill="none"/>
+    <text x="545" y="275" font-family="sans-serif" font-size="14" fill="#475569">侧边沿纵向发生剪切倾斜</text>
+    <text x="545" y="295" font-family="sans-serif" font-size="14" fill="#475569">(如推移扑克牌，不改变面积)</text>
+
+    <!-- 解释说明：横向剪切 -->
+    <path d="M 330 80 Q 330 110 330 130" stroke="#64748b" stroke-width="1.5" marker-end="url(#arrow-gray)" fill="none"/>
+    <text x="330" y="65" font-family="sans-serif" font-size="14" fill="#475569" text-anchor="middle">顶边沿横向发生剪切倾斜，同样不贡献一阶面积</text>
+
+    <!-- ================= 底部总结公式 ================= -->
+    <rect x="180" y="490" width="390" height="40" rx="8" fill="#f8fafc" stroke="#e2e8f0" stroke-width="2"/>
+    <text x="375" y="516" font-family="sans-serif" font-size="18" fill="#0f172a" text-anchor="middle" font-weight="bold">
+        极小时间 ε 后总面积 ≈ 1 + ε a₁₁ + ε a₂₂ = 1 + ε · tr(A)
+    </text>
+
+</svg>
