@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>二维线性动力系统：特征分析与向量场</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/p5.js"></script>
+    <style>
+        body { margin: 0; padding: 0; display: flex; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: #0f0f1a; color: white; overflow: hidden; }
+        #controls { width: 320px; padding: 20px; background: rgba(30, 30, 45, 0.95); height: 100vh; overflow-y: auto; box-shadow: 5px 0 15px rgba(0,0,0,0.5); z-index: 10; border-right: 1px solid #333; }
+        .slider-group { margin-bottom: 20px; background: #2a2a3d; padding: 10px; border-radius: 8px; }
+        .slider-group label { display: block; font-size: 13px; margin-bottom: 5px; color: #aaa; font-family: monospace; }
+        input[type=range] { width: 100%; accent-color: #4af; }
+        h3 { color: #4af; margin-top: 0; font-weight: 300; border-bottom: 1px solid #444; padding-bottom: 5px; }
+        h4 { color: #999; margin: 15px 0 5px 0; font-size: 14px; text-transform: uppercase; }
+        .info { background: #1a1a2e; padding: 15px; border-radius: 8px; font-family: 'Consolas', monospace; font-size: 13px; margin-top: 10px; line-height: 1.5; border-left: 4px solid #4af; }
+        button { width: 100%; padding: 10px; margin-bottom: 8px; cursor: pointer; background: #33334d; border: 1px solid #444; color: #ddd; border-radius: 6px; transition: 0.2s; text-align: left; font-size: 13px; }
+        button:hover { background: #444466; border-color: #666; color: white; }
+        .math { color: #7fdbff; font-weight: bold; }
+        .v1-color { color: #9de0ad; } /* 柔和绿 */
+        .v2-color { color: #f5d782; } /* 柔和金 */
+    </style>
+</head>
+<body>
+
+<div id="controls">
+    <h3>矩阵参数 A</h3>
+    <div class="slider-group">
+        <label id="label-a">a: 1.0</label><input type="range" id="slider-a" min="-2" max="2" step="0.1" value="-0.5">
+        <label id="label-b">b: 0.0</label><input type="range" id="slider-b" min="-2" max="2" step="0.1" value="1.0">
+        <label id="label-c">c: 0.0</label><input type="range" id="slider-c" min="-2" max="2" step="0.1" value="-1.0">
+        <label id="label-d">d: 1.0</label><input type="range" id="slider-d" min="-2" max="2" step="0.1" value="-0.5">
+    </div>
+
+    <h4>典型情形预设</h4>
+    <button onclick="setMatrix(-1.5, 0, 0, -0.5)">1. 不同负特征值 (稳定节点)</button>
+    <button onclick="setMatrix(1, 0, 0, -1)">2. 符号相反 (鞍点)</button>
+    <button onclick="setMatrix(-1, 0, 0, -1)">3. 相同特征值 (星形节点)</button>
+    <button onclick="setMatrix(-1, 1, 0, -1)">4. 相同特征值 (退化节点/不可对角化)</button>
+    <button onclick="setMatrix(0, 1, -1, 0)">5. 纯虚特征值 (中心点)</button>
+    <button onclick="setMatrix(0.2, 1, -1, 0.2)">6. 复特征值 (不稳定螺旋)</button>
+
+    <div class="info" id="math-info">计算中...</div>
+</div>
+
+<script>
+let particles = [];
+const numParticles = 250;
+let a, b, c, d;
+let zoom = 60; 
+let eigenvectors = []; // 存储当前特征向量
+
+function setup() {
+    let canvas = createCanvas(windowWidth - 320, windowHeight);
+    canvas.parent(document.body);
+    for (let i = 0; i < numParticles; i++) {
+        particles.push(new Particle());
+    }
+}
+
+function draw() {
+    background(10, 10, 20, 45); 
+    translate(width / 2, height / 2);
+    
+    updateParams();
+    drawGrid();
+    drawVectorField();
+    drawEigenLines(); // 绘制特征向量轴
+    
+    for (let p of particles) {
+        p.update();
+        p.display();
+    }
+    
+    updateMathInfo();
+}
+
+function updateParams() {
+    a = parseFloat(select('#slider-a').value());
+    b = parseFloat(select('#slider-b').value());
+    c = parseFloat(select('#slider-c').value());
+    d = parseFloat(select('#slider-d').value());
+    
+    select('#label-a').html(`a: ${a.toFixed(1)}`);
+    select('#label-b').html(`b: ${b.toFixed(1)}`);
+    select('#label-c').html(`c: ${c.toFixed(1)}`);
+    select('#label-d').html(`d: ${d.toFixed(1)}`);
+}
+
+function setMatrix(va, vb, vc, vd) {
+    select('#slider-a').value(va);
+    select('#slider-b').value(vb);
+    select('#slider-c').value(vc);
+    select('#slider-d').value(vd);
+}
+
+function drawGrid() {
+    stroke(40, 40, 60);
+    strokeWeight(1);
+    line(-width/2, 0, width/2, 0);
+    line(0, -height/2, 0, height/2);
+}
+
+function drawVectorField() {
+    let step = 40;
+    stroke(70, 80, 120, 60);
+    for (let x = -width/2; x < width/2; x += step) {
+        for (let y = -height/2; y < height/2; y += step) {
+            let mx = x / zoom;
+            let my = -y / zoom;
+            let dx = a * mx + b * my;
+            let dy = c * mx + d * my;
+            let angle = atan2(-dy, dx);
+            let mag = sqrt(dx*dx + dy*dy);
+            let len = constrain(map(mag, 0, 5, 2, 18), 2, 18);
+            
+            push();
+            translate(x, y);
+            rotate(angle);
+            line(0, 0, len, 0);
+            pop();
+        }
+    }
+}
+
+function drawEigenLines() {
+    // 只有实特征值才有实特征向量轴
+    if (eigenvectors.length > 0) {
+        strokeWeight(1.5);
+        let colors = [color(157, 224, 173, 150), color(245, 215, 130, 150)]; // 柔和绿, 柔和金
+        
+        eigenvectors.forEach((v, i) => {
+            if (v.magSq() > 0.001) {
+                stroke(colors[i % 2]);
+                // 绘制贯穿屏幕的特征线
+                let factor = width + height;
+                line(-v.x * factor, v.y * factor, v.x * factor, -v.y * factor);
+                
+                // 绘制小标签
+                push();
+                fill(colors[i % 2]);
+                noStroke();
+                let labelPos = v.copy().mult(150);
+                text("v" + (i+1), labelPos.x + 5, -labelPos.y - 5);
+                pop();
+            }
+        });
+    }
+}
+
+class Particle {
+    constructor() { this.reset(); }
+    reset() {
+        this.pos = createVector(random(-width/2, width/2), random(-height/2, height/2));
+        this.prevPos = this.pos.copy();
+        this.life = random(50, 150);
+    }
+    update() {
+        let mx = this.pos.x / zoom;
+        let my = -this.pos.y / zoom;
+        let dx = a * mx + b * my;
+        let dy = c * mx + d * my;
+        this.prevPos = this.pos.copy();
+        this.pos.x += dx * 0.04 * zoom;
+        this.pos.y -= dy * 0.04 * zoom;
+        this.life--;
+        if (this.life <= 0 || abs(this.pos.x) > width/2 || abs(this.pos.y) > height/2) this.reset();
+    }
+    display() {
+        stroke(100, 180, 255, 180);
+        strokeWeight(1.5);
+        line(this.prevPos.x, this.prevPos.y, this.pos.x, this.pos.y);
+    }
+}
+
+function updateMathInfo() {
+    let tr = a + d;
+    let det = a * d - b * c;
+    let disc = tr * tr - 4 * det;
+    
+    let type = "";
+    let eigStr = "";
+    let canonicalForm = "";
+    eigenvectors = [];
+
+    if (disc > 0) { // 两个不同实特征值
+        let l1 = (tr + sqrt(disc)) / 2;
+        let l2 = (tr - sqrt(disc)) / 2;
+        eigStr = `λ₁ = ${l1.toFixed(2)}<br>λ₂ = ${l2.toFixed(2)}`;
+        canonicalForm = `[ ${l1.toFixed(2)}  0.0 ]<br>[  0.0 ${l2.toFixed(2)} ]`;
+        
+        // 计算特征向量: (A-λI)v = 0
+        eigenvectors.push(getEigenvector(l1));
+        eigenvectors.push(getEigenvector(l2));
+
+        if (l1 * l2 < 0) type = "鞍点 (Saddle)";
+        else if (l1 < 0) type = "稳定节点 (Stable Node)";
+        else type = "不稳定节点 (Unstable Node)";
+
+    } else if (abs(disc) < 0.0001) { // 相同特征值
+        let l = tr / 2;
+        eigStr = `λ₁ = λ₂ = ${l.toFixed(2)}`;
+        // 检查是否可对角化: A 是否已经是 λI
+        if (abs(b) < 0.001 && abs(c) < 0.001) {
+            type = "星形节点 (Star Node)<br><small>可对角化</small>";
+            canonicalForm = `[ ${l.toFixed(2)}  0.0 ]<br>[  0.0 ${l.toFixed(2)} ]`;
+            // 任意向量都是特征向量，选轴向
+            eigenvectors.push(createVector(1, 0), createVector(0, 1));
+        } else {
+            type = "退化节点 (Degenerate Node)<br><small>不可对角化 (Jordan)</small>";
+            canonicalForm = `[ ${l.toFixed(2)}  1.0 ]<br>[  0.0 ${l.toFixed(2)} ]`;
+            eigenvectors.push(getEigenvector(l));
+        }
+    } else { // 复特征值
+        let alpha = tr / 2;
+        let beta = sqrt(-disc) / 2;
+        eigStr = `λ = ${alpha.toFixed(2)} ± ${beta.toFixed(2)}i`;
+        canonicalForm = `[ ${alpha.toFixed(2)} ${beta.toFixed(2)} ]<br>[ ${(-beta).toFixed(2)} ${alpha.toFixed(2)} ]`;
+        
+        if (abs(alpha) < 0.01) type = "中心点 (Center)";
+        else if (alpha < 0) type = "稳定螺旋 (Stable Spiral)";
+        else type = "不稳定螺旋 (Unstable Spiral)";
+    }
+    
+    let vStr = "";
+    if (eigenvectors.length > 0) {
+        vStr = "<br><b>特征向量:</b><br>";
+        eigenvectors.forEach((v, i) => {
+            let className = i === 0 ? "v1-color" : "v2-color";
+            vStr += `<span class="${className}">v${i+1}: [${v.x.toFixed(2)}, ${v.y.toFixed(2)}]</span><br>`;
+        });
+    }
+
+    let info = `
+        <b>矩阵 A:</b><br>
+        [ ${a.toFixed(1)}, ${b.toFixed(1)} ]<br>
+        [ ${c.toFixed(1)}, ${d.toFixed(1)} ]<br><br>
+        <b>标准型 (Canonical):</b><br>
+        ${canonicalForm}<br><br>
+        <b>特征值:</b><br>${eigStr}
+        ${vStr}<br>
+        <b>分类:</b> <span class="math">${type}</span>
+    `;
+    document.getElementById('math-info').innerHTML = info;
+}
+
+// 求解 (A - λI)v = 0
+function getEigenvector(lambda) {
+    // 求解 [a-λ, b; c, d-λ][x; y] = [0; 0]
+    let m11 = a - lambda;
+    let m12 = b;
+    let m21 = c;
+    let m22 = d - lambda;
+    
+    // 如果 b 不为 0，取 v = [b, λ-a]
+    if (abs(m12) > 0.001) return createVector(m12, -m11).normalize();
+    // 如果 c 不为 0，取 v = [λ-d, c]
+    if (abs(m21) > 0.001) return createVector(-m22, m21).normalize();
+    // 如果是对角阵
+    if (abs(m11) < 0.001) return createVector(1, 0);
+    return createVector(0, 1);
+}
+
+function windowResized() {
+    resizeCanvas(windowWidth - 320, windowHeight);
+}
+</script>
+
+</body>
+</html>
