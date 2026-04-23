@@ -20,12 +20,11 @@ title: 常微分方程课堂补充
 
 在极小的时间 $\varepsilon$ 后，两个解会变成 
 $$
-y_1(\varepsilon) \approx y_1(0) + \varepsilon y_1'(0) = \begin{pmatrix} 1 \\ 0 \end{pmatrix} + \varepsilon A \begin{pmatrix} 1 \\ 0 \end{pmatrix}
-$$
-$$
+\begin{align}
+y_1(\varepsilon) \approx y_1(0) + \varepsilon y_1'(0) = \begin{pmatrix} 1 \\ 0 \end{pmatrix} + \varepsilon A \begin{pmatrix} 1 \\ 0 \end{pmatrix}\\
 y_2(\varepsilon) \approx y_2(0) + \varepsilon y_2'(0) = \begin{pmatrix} 0 \\ 1 \end{pmatrix} + \varepsilon A \begin{pmatrix} 0 \\ 1 \end{pmatrix}
+\end{align}
 $$
-
 采用线速场的想法，把两个位移量画出来，观察它们对面积的贡献。如下图所示。
 
 <img src="det Y(x).svg" class="img-landscape">
@@ -53,10 +52,12 @@ $$
 
 简单起见，下设 $n = 2$。
 
+### 对角矩阵
+
 最简单的例子莫过于  $A = \text{diag}(\lambda_1, \lambda_2)$；这个时候，方程可重写为
 
 $$
-\frac{dy^{(1)}}{dt} = \lambda_1 t, \quad \frac{dy^{(2)}}{dt} = \lambda_2 t
+\frac{dy^{(1)}}{dt} = \lambda_1 y^{(1)}, \quad \frac{dy^{(2)}}{dt} = \lambda_2 y^{(2)}
 $$
 
 很容易找到初值 $(1,0)^t$ 对应的解 $y_1 = (e^{\lambda_1 t}, 0)^t$ 与初值 $(0,1)^t$ 对应的解 $y_2 = (0, e^{\lambda_2 t})^t$。
@@ -79,6 +80,24 @@ $$
 翻到本节末尾的可交互图像，固定 $b=c=0$，将 $a$ 和 $d$ 设置成如下值，观察解曲线的样子并理解。
 - $(a,d) = (1,1)$
 - $(a,d) = (1,1/2)$
-- $(a,d) = $
+- $(a,d) = (1, -1)$
 
-<iframe src="animation/ode - 2nd constant coefficient.html" width="100%" height="500px" frameborder="0" scrolling="no"> </iframe>
+### 可对角化的矩阵
+
+以上结论确实优雅，可惜绝大多数矩阵都不是如上简单的对角矩阵。
+
+好在我们上面的推导并不要求是对角矩阵。回忆：我们本质上只需要找到了两个特定的解（它们形如指数的样子）这两个解就构成一组基本解，由此可以表示其他所有解。而刚刚特殊的地方在于，矩阵 $A$ 是对角矩阵，所以我们轻松地找到了初值 $(1,0)$ 和 $(0,1)$。
+
+对于更一般的情形，比如
+$$
+A =  \begin{pmatrix} 2 & -1 \\ -1 & 2 \end{pmatrix}
+$$
+则有
+$$
+\begin{align}
+\frac{dy^{(1)}}{dt} = 2 y^{(1)} - y^{(2)} \\
+\frac{dy^{(2)}}{dt} = -y^{(1)} + 2y^{(2)} 
+\end{align}
+$$
+
+<iframe src="animation/ode-2nd-constant-coefficient.html" width="100%" height="500px" frameborder="0" scrolling="no"> </iframe>
