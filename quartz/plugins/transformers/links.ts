@@ -4,6 +4,8 @@ import {
   RelativeURL,
   SimpleSlug,
   TransformOptions,
+  joinSegments,
+  pathToRoot,
   stripSlashes,
   simplifySlug,
   splitAnchor,
@@ -148,6 +150,27 @@ export const CrawlLinks: QuartzTransformerPlugin<Partial<Options>> = (userOpts) 
                 }
 
                 if (!isAbsoluteUrl(node.properties.src, { httpOnly: false })) {
+                  // Special case: preserve `.html` for static iframe embeds.
+                  // Quartz pretty-links strips `.html`, but GitHub Pages can mis-serve extensionless HTML.
+                  if (node.tagName === "iframe") {
+                    const raw = node.properties.src
+                    const match = raw.match(/^(?<path>[^?#]+)(?<query>\?[^#]*)?(?<hash>#.*)?$/)
+                    const srcPath = match?.groups?.path ?? raw
+                    const query = match?.groups?.query ?? ""
+                    const hash = match?.groups?.hash ?? ""
+
+                    if (
+                      srcPath.endsWith(".html") &&
+                      (srcPath.startsWith("static/") || srcPath.startsWith("/static/"))
+                    ) {
+                      const fromRoot = srcPath.startsWith("/") ? srcPath.slice(1) : srcPath
+                      node.properties.src = (joinSegments(pathToRoot(file.data.slug!), fromRoot) +
+                        query +
+                        hash) as RelativeURL
+                      return
+                    }
+                  }
+
                   let dest = node.properties.src as RelativeURL
                   dest = node.properties.src = transformLink(
                     file.data.slug!,
