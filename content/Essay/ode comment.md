@@ -35,3 +35,7 @@ $$
 \det(Y(\varepsilon)) \approx (1 + a_{11} \varepsilon)(1 + a_{22} \varepsilon) = 1 + \varepsilon \  \text{tr}{A} + o(\varepsilon)
 $$
 由此给出微分等式的直观。
+
+##### 0423
+
+<iframe src="animation/ode - 2nd constant coefficient.html" width="100%" height="500px" frameborder="0" scrolling="no"> </iframe>

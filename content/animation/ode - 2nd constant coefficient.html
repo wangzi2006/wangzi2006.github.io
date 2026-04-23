@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>二维线性微分方程向量场可视化</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/p5.js"></script>
+    <style>
+        body { margin: 0; padding: 0; display: flex; font-family: sans-serif; background: #111; color: white; overflow: hidden; }
+        #controls { width: 300px; padding: 20px; background: #222; height: 100vh; overflow-y: auto; box-shadow: 2px 0 5px rgba(0,0,0,0.5); z-index: 10; }
+        .slider-group { margin-bottom: 15px; }
+        .slider-group label { display: block; font-size: 14px; margin-bottom: 5px; color: #ccc; }
+        input[type=range] { width: 100%; }
+        h3 { color: #4af; margin-top: 0; }
+        .info { background: #333; padding: 10px; border-radius: 5px; font-family: monospace; font-size: 12px; margin-top: 10px; line-height: 1.4; }
+        button { width: 100%; padding: 8px; margin-bottom: 5px; cursor: pointer; background: #444; border: 1px solid #666; color: white; border-radius: 4px; }
+        button:hover { background: #555; }
+        .math { color: #f90; font-weight: bold; }
+    </style>
+</head>
+<body>
+
+<div id="controls">
+    <h3>矩阵参数 A</h3>
+    <div class="slider-group">
+        <label id="label-a">a: 1</label><input type="range" id="slider-a" min="-2" max="2" step="0.1" value="1">
+        <label id="label-b">b: 0</label><input type="range" id="slider-b" min="-2" max="2" step="0.1" value="0">
+        <label id="label-c">c: 0</label><input type="range" id="slider-c" min="-2" max="2" step="0.1" value="0">
+        <label id="label-d">d: -1</label><input type="range" id="slider-d" min="-2" max="2" step="0.1" value="-1">
+    </div>
+
+    <h3>场景预设</h3>
+    <button onclick="setMatrix(-1, 0, 0, -0.5)">1. 两个不同负特征值 (稳定节点)</button>
+    <button onclick="setMatrix(1, 0, 0, -1)">2. 特征值一正一负 (鞍点)</button>
+    <button onclick="setMatrix(-1, 0, 0, -1)">3. 相同特征值 (可对角化/星形节点)</button>
+    <button onclick="setMatrix(-1, 1, 0, -1)">4. 相同特征值 (不可对角化/退化节点)</button>
+    <button onclick="setMatrix(0, 1, -1, 0)">5. 虚特征值 (中心点)</button>
+
+    <div class="info" id="math-info">
+        特征值计算中...
+    </div>
+</div>
+
+<script>
+let particles = [];
+const numParticles = 200;
+let a = 1, b = 0, c = 0, d = -1;
+let zoom = 50; // 坐标缩放
+
+function setup() {
+    let canvas = createCanvas(windowWidth - 300, windowHeight);
+    canvas.parent(document.body);
+    
+    // 初始化粒子
+    for (let i = 0; i < numParticles; i++) {
+        particles.push(new Particle());
+    }
+}
+
+function draw() {
+    background(10, 10, 20, 40); // 拖尾效果
+    
+    translate(width / 2, height / 2);
+    updateParams();
+    
+    drawGrid();
+    drawVectorField();
+    
+    // 更新和绘制粒子
+    strokeWeight(2);
+    for (let p of particles) {
+        p.update();
+        p.display();
+    }
+    
+    updateMathInfo();
+}
+
+function updateParams() {
+    a = parseFloat(select('#slider-a').value());
+    b = parseFloat(select('#slider-b').value());
+    c = parseFloat(select('#slider-c').value());
+    d = parseFloat(select('#slider-d').value());
+    
+    select('#label-a').html(`a: ${a.toFixed(1)}`);
+    select('#label-b').html(`b: ${b.toFixed(1)}`);
+    select('#label-c').html(`c: ${c.toFixed(1)}`);
+    select('#label-d').html(`d: ${d.toFixed(1)}`);
+}
+
+function setMatrix(va, vb, vc, vd) {
+    select('#slider-a').value(va);
+    select('#slider-b').value(vb);
+    select('#slider-c').value(vc);
+    select('#slider-d').value(vd);
+}
+
+function drawGrid() {
+    stroke(50);
+    strokeWeight(1);
+    line(-width/2, 0, width/2, 0);
+    line(0, -height/2, 0, height/2);
+}
+
+function drawVectorField() {
+    let step = 40;
+    stroke(100, 100, 255, 50);
+    for (let x = -width/2; x < width/2; x += step) {
+        for (let y = -height/2; y < height/2; y += step) {
+            // 将屏幕坐标转换为数学坐标
+            let mx = x / zoom;
+            let my = -y / zoom; // y轴向上为正
+            
+            // 计算导数 dx/dt, dy/dt
+            let dx = a * mx + b * my;
+            let dy = c * mx + d * my;
+            
+            // 绘制小箭头
+            let angle = atan2(-dy, dx);
+            let mag = sqrt(dx*dx + dy*dy);
+            let len = map(mag, 0, 5, 5, 25);
+            len = constrain(len, 5, 20);
+            
+            push();
+            translate(x, y);
+            rotate(angle);
+            line(0, 0, len, 0);
+            line(len, 0, len-3, -3);
+            line(len, 0, len-3, 3);
+            pop();
+        }
+    }
+}
+
+class Particle {
+    constructor() {
+        this.reset();
+    }
+
+    reset() {
+        this.pos = createVector(random(-width/2, width/2), random(-height/2, height/2));
+        this.prevPos = this.pos.copy();
+        this.life = random(100, 200);
+    }
+
+    update() {
+        let mx = this.pos.x / zoom;
+        let my = -this.pos.y / zoom;
+        
+        // 欧拉积分
+        let dx = a * mx + b * my;
+        let dy = c * mx + d * my;
+        
+        this.prevPos = this.pos.copy();
+        this.pos.x += dx * 0.05 * zoom;
+        this.pos.y -= dy * 0.05 * zoom;
+        
+        this.life--;
+        
+        // 如果跑出屏幕或寿命到了或太靠近原点（如果是稳定点）则重置
+        if (this.life <= 0 || 
+            abs(this.pos.x) > width/2 || 
+            abs(this.pos.y) > height/2 ||
+            (abs(dx) < 0.001 && abs(dy) < 0.001)) {
+            this.reset();
+        }
+    }
+
+    display() {
+        stroke(100, 200, 255, 150);
+        line(this.prevPos.x, this.prevPos.y, this.pos.x, this.pos.y);
+    }
+}
+
+function updateMathInfo() {
+    // 特征值方程: λ^2 - Tr(A)λ + det(A) = 0
+    let tr = a + d;
+    let det = a * d - b * c;
+    let disc = tr * tr - 4 * det;
+    
+    let type = "";
+    let eigVal = "";
+    
+    if (disc > 0) {
+        let l1 = (tr + sqrt(disc)) / 2;
+        let l2 = (tr - sqrt(disc)) / 2;
+        eigVal = `λ₁ = ${l1.toFixed(2)}<br>λ₂ = ${l2.toFixed(2)}`;
+        if (l1 * l2 < 0) type = "鞍点 (Saddle Point)";
+        else if (l1 < 0) type = "稳定节点 (Stable Node)";
+        else type = "不稳定节点 (Unstable Node)";
+    } else if (disc === 0) {
+        let l = tr / 2;
+        eigVal = `λ₁ = λ₂ = ${l.toFixed(2)}`;
+        // 判断是否可对角化
+        if (b === 0 && c === 0) {
+            type = "星形节点 (Star Node, 可对角化)";
+        } else {
+            type = "退化节点 (Degenerate Node, 不可对角化)";
+        }
+    } else {
+        let real = tr / 2;
+        let img = sqrt(-disc) / 2;
+        eigVal = `λ = ${real.toFixed(2)} ± ${img.toFixed(2)}i`;
+        if (abs(real) < 0.01) type = "中心点 (Center)";
+        else if (real < 0) type = "稳定螺旋 (Stable Spiral)";
+        else type = "不稳定螺旋 (Unstable Spiral)";
+    }
+    
+    let info = `
+        <b>矩阵 A:</b><br>
+        [ ${a.toFixed(1)}, ${b.toFixed(1)} ]<br>
+        [ ${c.toFixed(1)}, ${d.toFixed(1)} ]<br><br>
+        <b>特征值:</b><br>
+        ${eigVal}<br><br>
+        <b>判别式 Δ:</b> ${disc.toFixed(2)}<br>
+        <b>类型:</b> <span class="math">${type}</span>
+    `;
+    document.getElementById('math-info').innerHTML = info;
+}
+
+function windowResized() {
+    resizeCanvas(windowWidth - 300, windowHeight);
+}
+</script>
+
+</body>
+</html>
