@@ -20,10 +20,10 @@ title: 常微分方程课堂补充
 
 在极小的时间 $\varepsilon$ 后，两个解会变成 
 $$
-\begin{align}
+\begin{aligned}
 y_1(\varepsilon) \approx y_1(0) + \varepsilon y_1'(0) = \begin{pmatrix} 1 \\ 0 \end{pmatrix} + \varepsilon A \begin{pmatrix} 1 \\ 0 \end{pmatrix}\\
 y_2(\varepsilon) \approx y_2(0) + \varepsilon y_2'(0) = \begin{pmatrix} 0 \\ 1 \end{pmatrix} + \varepsilon A \begin{pmatrix} 0 \\ 1 \end{pmatrix}
-\end{align}
+\end{aligned}
 $$
 采用线速场的想法，把两个位移量画出来，观察它们对面积的贡献。如下图所示。
 
@@ -98,10 +98,10 @@ A =  \begin{pmatrix} 2 & -1 \\ -1 & 2 \end{pmatrix}
 $$
 则有
 $$
-\begin{align}
+\begin{aligned}
 \frac{dy^{(1)}}{dt} &= 2 y^{(1)} - y^{(2)} \\
 \frac{dy^{(2)}}{dt} &= -y^{(1)} + 2y^{(2)} 
-\end{align}
+\end{aligned}
 $$
 我们只会解一元的方程。因此我们想进行消元。两式相加，并设 $z = y^{(1)} + y^{(2)}$，则有
 $$
