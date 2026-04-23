@@ -182,4 +182,4 @@ $$
 
 在本节末尾的可交互图像中，设置 $b=1, c=0, d=-1$，并令 $a = -1.3, -1.2, -1.1, -1$，观察解曲线的变化。
 
-<iframe src="../static/animation/ode-2nd-constant-coefficient.html" width="100%" height="500px" frameborder="0" scrolling="no"> </iframe>
+<iframe src="static/animation/ode-2nd-constant-coefficient.html" width="100%" height="500px" frameborder="0" scrolling="no"> </iframe>
