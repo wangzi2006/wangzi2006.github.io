@@ -187,3 +187,57 @@ $$
 
 
 <iframe src="static/animation/ode-2nd-constant-coefficient.html" width="100%" height="500px" frameborder="0" scrolling="no"> </iframe>
+
+## 0427
+
+下面我想说明：
+
+> 设 $\mu$ 是特征多项式 $p(\lambda)$ 的 $k$ 重根。则线性变换 $L: V_{m+k} \to V_m$ 是满射，其核 $\ker L = V_{k-1}$。由线性代数基本定理，$L$ 在商空间 $V_{m+k} / V_{k-1}$ 上是同构的。因此对于任意 $f \in V_m$，存在唯一的 $y^* \in \{x^k Q_m(x) e^{\mu x} \mid \deg Q_m \leq m\}$ 使得 $L(y^*) = f$。
+
+设
+$$
+L = \frac{d^n}{dx^n} + a_1 \frac{d^{n-1}}{dx^{n-1}} + \cdots + a_{n-1}\frac{d}{dx} + a_n
+$$
+常系数高阶线性微分方程（书 5.3.2 节）可表示为
+$$
+L(y) = f(x)
+$$
+在右端项 $f(x)$ 具有特殊结构，如 $f(x) = P_m(x)e^{\mu x}$，$P_m$ 是 $m$ 次多项式时，我们可以直接用待定系数法把问题求解出来。
+
+这可以从线性代数的角度理解：固定 $\mu$，设
+$$
+V_m = \{P_m(x)e^{\mu x}:\deg P_m \leq m \}
+$$
+是 $m+1$ 维线性子空间，$L: V_m \to V_m$ 是线性变换。要求解 $L(y) = f$，可转化为求解 $L^{-1} f$。
+
+考虑 $L$ 在空间的基 $x^m e^{\mu x}$ 下的作用。若设方程的特征多项式（也即系数矩阵的特征多项式）
+$$
+p(\lambda) = \lambda^n + a_1 \lambda^{n-1} + \cdots + a_n
+$$
+以 $\mu$ 为 $k$ 重根，i.e. $p^{(l)} (\mu) = 0$ 对 $l = 0, 1, \cdots, k-1$ 成立，但对 $l = k$ 不成立，则
+$$
+L(x^me^{\mu x}) = \sum_{k \geq 0} C_m^k p^{(k)}(\mu) x^{m-k} e^{\mu x}
+$$
+因此，$\ker L = V_{k-1}$，$L(V_m) = V_{m-k}$。这就解释了通解的解空间为
+$$
+V_{k-1} = \text{span} \{e^{\mu x}, xe^{\mu x}, \cdots, x^{k-1} e^{\mu x}\}
+$$
+特解形如
+$$
+y^* = x^k Q_{m} (x) e^{\mu x}
+$$
+从另一个观点来说，$\frac{d}{dx}$ 在基底 $\{e^{\mu x}, xe^{\mu x}, \cdots, x^{k-1} e^{\mu x}\}$ 下为 Jordan 块 $J_k(\mu)$，因此 $\frac{d}{dx} - \mu$ 的矩阵表示为 $J_k(0)$。当 $\mu$ 是 $k$ 重根时，$L = (\frac{d}{dx}-\mu)^k \cdot G(\frac{d}{dx})$，其中 $G(\frac{d}{dx})$ 非退化、可逆。
+
+另外， 在 Euler 方程（书 例5.16）中，设
+$$
+D = x^n\frac{d^n}{dx^n} + a_1 x^{n-1}\frac{d^{n-1}}{dx^{n-1}} + \cdots + a_{n-1} x \frac{d}{dx} + a_n
+$$
+记
+$$
+V_m = \text{span}\{x^\lambda, x^\lambda \ln x, x^\lambda (\ln x)^2, \cdots, x^\lambda (\ln x)^m\}
+$$
+（这个形式是对 $D(x^\lambda) = P(\lambda) x^\lambda$ 的两边对 $\lambda$ 求偏导得到的）
+
+则也有类似上文的结论。
+
+
