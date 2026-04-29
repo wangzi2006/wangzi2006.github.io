@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <title>KFE - Probability Mass Distribution</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.6.0/p5.js"></script>
+  <style>
+    body { 
+      margin: 0; overflow: hidden; background: #050505; 
+      font-family: 'Inter', sans-serif; display: flex; justify-content: center;
+    }
+    #ui {
+      position: absolute; bottom: 15px; /* 按钮更向下 */
+      display: flex; gap: 30px;
+      padding: 12px 30px; background: rgba(15, 15, 15, 0.9);
+      border-radius: 50px; border: 1px solid #222; backdrop-filter: blur(15px);
+      z-index: 100;
+    }
+    .slider-group { display: flex; align-items: center; gap: 12px; }
+    label { color: #666; font-size: 9px; text-transform: uppercase; letter-spacing: 2px; }
+    input { width: 110px; accent-color: #00d4ff; cursor: pointer; }
+    .btn { 
+      background: none; border: 1px solid rgba(0, 212, 255, 0.5); 
+      color: #00d4ff; border-radius: 20px; padding: 4px 18px; 
+      cursor: pointer; font-size: 10px; letter-spacing: 1px; transition: 0.2s;
+    }
+    .btn:hover { background: #00d4ff; color: #000; box-shadow: 0 0 15px rgba(0, 212, 255, 0.4); }
+    h1 { 
+      position: absolute; top: 30px; color: rgba(255,255,255,0.2); 
+      font-weight: 200; font-size: 12px; letter-spacing: 10px; pointer-events: none;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>PROBABILITY MASS EVOLUTION</h1>
+
+  <div id="ui">
+    <div class="slider-group">
+      <label>Drift</label>
+      <input type="range" id="drift" min="0" max="0.1" step="0.001" value="0.02">
+    </div>
+    <div class="slider-group">
+      <label>Diffusion</label>
+      <input type="range" id="diff" min="0" max="4" step="0.1" value="1.5">
+    </div>
+    <button class="btn" onclick="resetParticles()">RESET MASS</button>
+  </div>
+
+<script>
+let particles = [];
+const N = 2400; 
+const numBins = 160;
+let bins = new Array(numBins);
+let smoothed = new Array(numBins);
+
+// 概率密度高度系数：原先 0.5 * 1.2 = 0.6
+const DENSITY_SCALE = 0.6; 
+
+function setup() {
+  createCanvas(windowWidth, windowHeight);
+  resetParticles();
+}
+
+function resetParticles() {
+  particles = [];
+  for (let i = 0; i < N; i++) {
+    // 初始分布稍微集中，视觉效果更好
+    particles.push({ y: randomGaussian(0, width/6) });
+  }
+}
+
+function draw() {
+  background(5, 5, 5, 90);
+  
+  // 布局调整：
+  // 基准线移到 65% 的位置，给密度函数留出更大的向上生长空间
+  const baselineY = height * 0.65;
+  // 粒子带中心移到 82% 的位置，与曲线拉开距离
+  const particleZoneY = height * 0.82; 
+
+  let b = parseFloat(document.getElementById('drift').value);
+  let s = parseFloat(document.getElementById('diff').value);
+
+  // 1. 物理步进 (Euler-Maruyama)
+  bins.fill(0);
+  for (let p of particles) {
+    p.y += -b * p.y + s * randomGaussian();
+    let idx = floor(map(p.y, -width/2, width/2, 0, numBins));
+    if (idx >= 0 && idx < numBins) bins[idx]++;
+  }
+
+  // 2. KDE 平滑处理
+  const kernel = [0.05, 0.2, 0.5, 0.2, 0.05];
+  for (let i = 0; i < numBins; i++) {
+    let val = 0;
+    for (let k = -2; k <= 2; k++) {
+      let readIdx = constrain(i + k, 0, numBins - 1);
+      val += bins[readIdx] * kernel[k + 2];
+    }
+    smoothed[i] = val;
+  }
+
+  // --- 绘制 密度函数区域 ---
+  push();
+  translate(width / 2, baselineY);
+  
+  // 填充质量感
+  noStroke();
+  fill(0, 150, 255, 25);
+  beginShape();
+  vertex(-width/2, 0);
+  for (let i = 0; i < numBins; i++) {
+    vertex(map(i, 0, numBins, -width/2, width/2), -smoothed[i] * DENSITY_SCALE);
+  }
+  vertex(width/2, 0);
+  endShape(CLOSE);
+
+  // 绘制边缘线
+  noFill();
+  strokeWeight(2.5);
+  beginShape();
+  for (let i = 0; i < numBins; i++) {
+    let x = map(i, 0, numBins, -width/2, width/2);
+    let h = smoothed[i] * DENSITY_SCALE;
+    let glow = constrain(map(h, 0, height*0.5, 0, 1), 0, 1);
+    stroke(lerpColor(color(0, 130, 255), color(220, 245, 255), glow));
+    vertex(x, -h);
+  }
+  endShape();
+  
+  // 辅助基准线
+  stroke(255, 12);
+  line(-width/2, 0, width/2, 0); 
+  pop();
+
+  // --- 绘制 粒子带区域 ---
+  // 占据更大面积，且更向上移，与 UI 分开
+  push();
+  translate(width / 2, particleZoneY);
+  noStroke();
+  for (let i = 0; i < N; i += 2) {
+    let p = particles[i];
+    let distAlpha = map(abs(p.y), 0, width/2, 180, 0);
+    fill(0, 212, 255, distAlpha);
+    
+    // 纵向散布范围加大：-60 到 60 像素，占据 120 像素宽度的带状面积
+    let verticalSpread = map(i % 100, 0, 100, -60, 60);
+    circle(p.y, verticalSpread, 1.8);
+  }
+  
+  // 粒子带的装饰边界
+  stroke(255, 5);
+  line(-width/3, -70, width/3, -70);
+  line(-width/3, 70, width/3, 70);
+  pop();
+}
+
+function windowResized() {
+  resizeCanvas(windowWidth, windowHeight);
+}
+</script>
+</body>
+</html>

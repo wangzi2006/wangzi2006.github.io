@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>KBE 逻辑修正版 - 概率守恒可视化</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/p5.js"></script>
+    <style>
+        body { 
+            margin: 0; padding: 0; background: #010409; color: #00f2ff; 
+            font-family: 'Courier New', Courier, monospace; overflow: hidden; 
+        }
+        #ui-box {
+            position: absolute; top: 15px; left: 15px; width: 280px;
+            background: rgba(0, 8, 15, 0.9); border: 1px solid #00f2ff; 
+            padding: 15px; border-radius: 4px; z-index: 10;
+            box-shadow: 0 0 20px rgba(0, 242, 255, 0.1);
+        }
+        .ctrl { margin-bottom: 10px; }
+        label { display: block; font-size: 11px; margin-bottom: 2px; color: #88ccff; }
+        .hotkey { color: #ffaa00; font-size: 9px; }
+        input[type=range] { width: 100%; cursor: pointer; accent-color: #00f2ff; }
+        .val { float: right; color: #fff; font-weight: bold; }
+        .eq { margin-top: 10px; font-size: 12px; color: #00ffaa; border-top: 1px solid #004466; padding-top: 8px; }
+    </style>
+</head>
+<body>
+
+<div id="ui-box">
+    <div style="font-size: 14px; font-weight: bold; margin-bottom: 10px; border-bottom: 1px solid #00f2ff33; padding-bottom: 5px;">KBE: PROBABILITY CONSERVATION</div>
+    
+    <div class="ctrl">
+        <label>漂移 b <span class="hotkey">[Q/E]</span> <span class="val" id="val-b">0.0</span></label>
+        <input type="range" id="slider-b" min="-4" max="4" step="0.05" value="0">
+    </div>
+    <div class="ctrl">
+        <label>扩散 σ² <span class="hotkey">[A/D]</span> <span class="val" id="val-s">1.0</span></label>
+        <input type="range" id="slider-s" min="0.5" max="8" step="0.05" value="2.0">
+    </div>
+    <div class="ctrl">
+        <label>回溯 Δt <span class="hotkey">[W/S]</span> <span class="val" id="val-t">0.2</span></label>
+        <input type="range" id="slider-t" min="0.05" max="1.5" step="0.01" value="0.2">
+    </div>
+    <div class="eq">-∂u/∂s = b ∂u/∂x + ½σ² ∂²u/∂x²</div>
+    <div style="font-size: 10px; color: #5588aa; margin-top: 8px; line-height: 1.2;">
+        注意：当 Δt 增加，光束变宽且<b>变暗</b><br>
+        这是因为全概率密度积分恒等于 1
+    </div>
+</div>
+
+<script>
+let f_y = [];
+const T_LINE_Y = 180; 
+const MAX_F = 130;    
+
+function setup() {
+    createCanvas(windowWidth, windowHeight);
+    buildLandscape();
+}
+
+function buildLandscape() {
+    f_y = new Array(width).fill(0);
+    for (let x = 0; x < width; x++) {
+        let frac = x / width;
+        if (frac < 0.25) f_y[x] = map(frac, 0, 0.24, 10, MAX_F);
+        else if (frac < 0.5) f_y[x] = map(frac, 0.25, 0.49, MAX_F, 10);
+        else if (frac < 0.75) {
+            let n = (frac - 0.625) / 0.125;
+            f_y[x] = 10 + (MAX_F-10) * n * n;
+        } else {
+            let n = (frac - 0.875) / 0.125;
+            f_y[x] = MAX_F - (MAX_F-10) * n * n;
+        }
+    }
+}
+
+function handleKeyboard() {
+    let sb = select('#slider-b'), ss = select('#slider-s'), st = select('#slider-t');
+    let b = parseFloat(sb.value()), s = parseFloat(ss.value()), t = parseFloat(st.value());
+    if (keyIsDown(81)) b -= 0.05; if (keyIsDown(69)) b += 0.05;
+    if (keyIsDown(65)) s -= 0.05; if (keyIsDown(68)) s += 0.05;
+    if (keyIsDown(87)) t += 0.01; if (keyIsDown(83)) t -= 0.01;
+    sb.value(constrain(b, -4, 4)); 
+    ss.value(constrain(s, 0.5, 8)); 
+    st.value(constrain(t, 0.05, 1.5));
+}
+
+function draw() {
+    handleKeyboard();
+    background(2, 5, 10);
+    
+    let b = parseFloat(select('#slider-b').value());
+    let sig2 = parseFloat(select('#slider-s').value());
+    let dt = parseFloat(select('#slider-t').value());
+    select('#val-b').html(b.toFixed(2));
+    select('#val-s').html(sig2.toFixed(2));
+    select('#val-t').html(dt.toFixed(2));
+
+    // 1. 未来时刻断面
+    stroke(255, 255, 255, 40);
+    line(0, T_LINE_Y, width, T_LINE_Y);
+    
+    // 2. 收益函数曲线 f(y)
+    stroke(0, 242, 255, 180);
+    strokeWeight(2);
+    noFill();
+    beginShape();
+    for (let x = 0; x < width; x++) {
+        if (x % floor(width/4) == 0) { endShape(); beginShape(); }
+        vertex(x, T_LINE_Y - f_y[x]);
+    }
+    endShape();
+
+    // 3. 发射器位置 (s, x)
+    let Ex = constrain(mouseX, 0, width);
+    let Ey = T_LINE_Y + 100 + dt * 250; // 随 dt 增加向下移动
+
+    // 4. 计算概率密度参数
+    // 物理方差 V = sigma^2 * dt
+    let physV = sig2 * dt * 1000; // 这里的1000是空间缩放系数
+    let stdDev = sqrt(physV);
+    let shift = b * dt * 150; 
+    let targetX = Ex + shift;
+    
+    // 归一化系数: 1 / sqrt(2 * PI * V)
+    // 这是保证概率守恒的关键，V越大，强度越低
+    let normConstant = 150.0 / (stdDev * sqrt(TWO_PI)); 
+
+    let expectedValue = 0;
+    let weightSum = 0;
+
+    // 5. 渲染光束与染色 (积分过程)
+    for (let x = 0; x < width; x += 4) {
+        let dist = x - targetX;
+        
+        // 严格的高斯概率密度函数 p(y)
+        let p_y = normConstant * exp(-(dist * dist) / (2 * physV));
+        
+        if (p_y > 0.001) {
+            // 光束强度随 p_y 变化
+            stroke(0, 150, 255, p_y * 150); 
+            strokeWeight(1);
+            line(Ex, Ey, x, T_LINE_Y);
+            
+            // 收益贡献区域染色 (深浅表示概率密度强度)
+            // 颜色的 alpha 严格对应 p_y
+            stroke(0, 255, 180, p_y * 400); 
+            strokeWeight(3);
+            line(x, T_LINE_Y, x, T_LINE_Y - f_y[x]);
+
+            expectedValue += f_y[x] * p_y;
+            weightSum += p_y;
+        }
+    }
+    
+    // 期望的计算：由于我们手动离散化了积分，
+    // 需要确保 sum(p_y * dx) 对应权重的正确性
+    // 这里简单用归一化后的均值表示
+    if (weightSum > 0) {
+        // 由于 normConstant 带了视觉缩放，计算期望时需解耦视觉系数
+        // 这里的 expectedValue 实际上反映了图形面积的物理量
+        let displayExpectation = expectedValue / weightSum;
+
+        // 6. 发射器 UI 表现
+        fill(255);
+        noStroke();
+        ellipse(Ex, Ey, 10, 10);
+        
+        textAlign(CENTER);
+        fill(255, 220, 0);
+        textSize(22);
+        text(displayExpectation.toFixed(1), Ex, Ey + 35);
+        textSize(10);
+        fill(255, 220, 0, 150);
+        text("EXPECTED REWARD", Ex, Ey + 50);
+
+        // 绘制收益指示条
+        rectMode(CENTER);
+        rect(Ex, Ey + 60, (displayExpectation/MAX_F)*120, 4);
+    }
+
+    drawSectionLabels();
+}
+
+function drawSectionLabels() {
+    fill(0, 242, 255, 80);
+    textAlign(CENTER);
+    textSize(11);
+    let y = 30;
+    text("SLOPE +", width * 0.125, y);
+    text("SLOPE -", width * 0.375, y);
+    text("CONVEX (p_xx > 0)", width * 0.625, y);
+    text("CONCAVE (p_xx < 0)", width * 0.875, y);
+}
+
+function windowResized() {
+    resizeCanvas(windowWidth, windowHeight);
+    buildLandscape();
+}
+</script>
+</body>
+</html>
