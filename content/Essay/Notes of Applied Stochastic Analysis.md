@@ -17,9 +17,9 @@ title: 应用随机分析笔记
 2. $P(s,x;t,-)$ 是可测空间 $(\mathbb{R}^n, \mathcal B(\mathbb{R}^n))$ 上的概率测度
 3. 对于任意的 $f \in \text{Bor}_b(\mathbb {R}^n)$，
    $$
-\mathbb{E}[f(X_t)|X_s] = \int f(y) P(s, X_s; t, dy)
-$$
-特别地，
+   \mathbb{E}[f(X_t)|X_s] = \int f(y) P(s, X_s; t, dy)
+   $$
+   特别地，
 - 当 $P$ 只与 $t-s$ 有关时，称为**时齐马氏过程**，记为 $P(t-s,x,A)$；
 - 若 $P$ 有密度函数 $p(s,x;t,y)$，则称 $p$ 为马氏过程的**转移概率密度族**。
 
@@ -50,7 +50,6 @@ $$
 p(t, x; t, y) & = \delta_x(y)
 \end{aligned} \right.
 $$
-
 **Thm 4.4.4（Kolmogorov Forward Equation，KFE）** 设扩散过程 $X_t$ 有转移概率密度 $p(s,x;t,y)$，则
 $$
 \left\{ \begin{aligned}
@@ -58,7 +57,6 @@ $$
 p(s, x; s, y) &= \delta_x(y)
 \end{aligned} \right.
 $$
-
 粗糙地说，Kolmogorov 方程描述了：在给定系数以及目前概率密度 $p(s,x;t,y)$ 的情况下，如何通过目前的形状分布（关于 $x$ 或 $y$ 的导数）来判断形状分布随时间 $s$ 或 $t$ 的变化趋势。
 
 两个方程有两个主要不同点：
@@ -71,7 +69,6 @@ $$
 $$
 -\frac{\partial p(s, x; t, y)}{\partial s} = b(s, x)\frac{\partial p(s, x; t, y)}{\partial x} + \frac{1}{2}\sigma^2(s, x)\frac{\partial^2 p(s, x; t, y)}{\partial x^2}, \quad s < t
 $$
-
 等式的左侧 $-p'_s$ 理解成 $p'_{-s}=p'_{t-s}$，即概率分布随着时间的倒退而如何变化。把 $p$ 理解成收益（或者说，周围有多少粒子）。
 
 #### 例一：$b$ 的影响 - 特殊的 $b$ 
@@ -102,11 +99,9 @@ $$
 <iframe src="static/animation/KBE.html" width="100%" height="500px" frameborder="0" scrolling="no"> </iframe>
 
 ### Forward Equation
-
 $$
 \frac{\partial p(s, x; t, y)}{\partial t} =  - \frac{\partial}{\partial y} \left( b(t, y) p(s, x; t, y) \right) +\frac{1}{2} \frac{\partial^2}{\partial y^2} \left( \sigma^2(t, y) p(s, x; t, y) \right), \quad s<t 
 $$
-
 与 Backward Equation 对应的，在 Forward Equation 中，我是一个接收器，看看带有密度的粒子们将有多少撞到我的身上。这就是所谓的**概率流**观点。通过 $b$ 对概率分布的影响，我将详细解释概率流的含义。
 
 #### 例一：$b$ 的影响 - $b$ 恒同，$p$ 不同
