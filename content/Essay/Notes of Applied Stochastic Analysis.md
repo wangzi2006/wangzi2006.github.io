@@ -2,7 +2,10 @@
 title: 应用随机分析笔记
 ---
 > 序号的标号对标刘勇老师的讲义 lectnote26
+
+
 ## Kolmogorov Equation
+
 本节的目标是直观理解并记忆 Kolmogorov Backward Equation（KBE）和 Kolmogorov Forward Equation（KFE，或称 Fokker-Planck Equation）。
 
 回忆如下定义：
@@ -60,6 +63,7 @@ $$
 下面将详细展开如何理解这种不同。我们忽略第二行的初值（终值）条件，只理解第一行的等式。
 
 ### Backward Equation
+
 等式的左侧 $-p'_s$ 理解成 $p'_{-s}=p'_{t-s}$，即概率分布随着时间的倒退而如何变化。把 $p$ 理解成收益（或者说，周围有多少粒子）。
 
 例1：先考虑 $b$ 的影响。设 $\sigma = 0$，$b \equiv 1$（粒子匀速地向右移动），$p$ 增（右密左疏）。在目前 $s$，我右边比我人多，左边比我人少。
@@ -79,7 +83,9 @@ $$
 总结来说，Backward Equation 理解成：**回到过去极小时刻，看看过去在此地时，在期望意义下，现在周围的人更多还是更少。** 我是一个轻巧的发射器，发射一些墨水，看看墨水会到达哪个位置。
 
 <iframe src="static/animation/KBE.html" width="100%" height="500px" frameborder="0" scrolling="no"> </iframe>
+
 ### Forward Equation
+
 与之对应的，在 Forward Equation 中，我是一个接收器，看看带有密度的粒子们将有多少撞到我的身上。这就是所谓的**概率流**观点。通过 $b$ 对概率分布的影响，我将详细解释概率流的含义。
 
 例1：设 $\sigma = 0$，$b \equiv 1$（粒子匀速地向右移动），$p$ 增（右密左疏）。在目前 $t$，我右边比我人多，左边比我人少。
