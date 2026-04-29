@@ -14,7 +14,9 @@ title: 应用随机分析笔记
 1. $P(s,-;t,A) \in \text{Bor}(\mathbb{R}^n)$
 2. $P(s,x;t,-)$ 是可测空间 $(\mathbb{R}^n, \mathcal B(\mathbb{R}^n))$ 上的概率测度
 3. 对于任意的 $f \in \text{Bor}_b(\mathbb {R}^n)$，
-   $$ \mathbb{E}[f(X_t)|X_s] = \int f(y) P(s, X_s; t, dy) $$
+   $$
+\mathbb{E}[f(X_t)|X_s] = \int f(y) P(s, X_s; t, dy)
+$$
 特别地，
 - 当 $P$ 只与 $t-s$ 有关时，称为**时齐马氏过程**，记为 $P(t-s,x,A)$；
 - 若 $P$ 有密度函数 $p(s,x;t,y)$，则称 $p$ 为马氏过程的**转移概率密度族**。
@@ -106,7 +108,9 @@ $$
 例3：再考虑 $\sigma^2$ 的影响。设 $b=0$，$\sigma^2 > 0$，概率分布形如开口朝上的二次函数，$p'_{xx} > 0$，比如两侧的人都比我多。随时间扩散，表现出劫富济贫（平均化）的性质，因此在此地观察到的粒子将（随着时间流逝而）变多。
 
 总结而言，KFE 可以把方程重写为：
-$$ \frac{\partial p}{\partial t} + \frac{\partial}{\partial y} J(t,y) = 0 $$
+$$
+\frac{\partial p}{\partial t} + \frac{\partial}{\partial y} J(t,y) = 0
+$$
 其中 $J(t,y) = b(t,y)p - \frac{1}{2}\frac{\partial}{\partial y}(\sigma^2(t,y)p)$ 称为**概率流 (Probability Flux)**，刻画了该时刻在该位置的例子期望流向多远的地方；假如比我小的地方比我流的快，则概率流的导数为负数。
 
 局部密度的增加 $\frac{\partial p}{\partial t} > 0$，必然是因为流入大于流出，也即概率流的导数 $\frac{\partial J}{\partial y} < 0$。
