@@ -68,6 +68,9 @@ $$
 下面将详细展开如何理解这种不同。我们忽略第二行的初值（终值）条件，只理解第一行的等式。
 
 ### Backward Equation
+$$
+-\frac{\partial p(s, x; t, y)}{\partial s} = b(s, x)\frac{\partial p(s, x; t, y)}{\partial x} + \frac{1}{2}\sigma^2(s, x)\frac{\partial^2 p(s, x; t, y)}{\partial x^2}, \quad s < t
+$$
 
 等式的左侧 $-p'_s$ 理解成 $p'_{-s}=p'_{t-s}$，即概率分布随着时间的倒退而如何变化。把 $p$ 理解成收益（或者说，周围有多少粒子）。
 
@@ -100,7 +103,11 @@ $$
 
 ### Forward Equation
 
-与之对应的，在 Forward Equation 中，我是一个接收器，看看带有密度的粒子们将有多少撞到我的身上。这就是所谓的**概率流**观点。通过 $b$ 对概率分布的影响，我将详细解释概率流的含义。
+$$
+\frac{\partial p(s, x; t, y)}{\partial t} =  - \frac{\partial}{\partial y} \left( b(t, y) p(s, x; t, y) \right) +\frac{1}{2} \frac{\partial^2}{\partial y^2} \left( \sigma^2(t, y) p(s, x; t, y) \right), \quad s<t 
+$$
+
+与 Backward Equation 对应的，在 Forward Equation 中，我是一个接收器，看看带有密度的粒子们将有多少撞到我的身上。这就是所谓的**概率流**观点。通过 $b$ 对概率分布的影响，我将详细解释概率流的含义。
 
 #### 例一：$b$ 的影响 - $b$ 恒同，$p$ 不同
 
