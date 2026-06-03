@@ -1,3 +1,8 @@
+---
+draft: true
+---
+
+
 > 记录每天做的题目
 
 - 2026-04-06：IMOSL 2024 G1, G2, G3
@@ -19,57 +24,105 @@
 
 【ex 不适合放在卷子中，是练习题】
 
-| 题目                             | 类别  | 类型&难度    | 知识点                                    | 组卷     |
-| ------------------------------ | --- | -------- | -------------------------------------- | ------ |
-| 2023 St Petersburg P6          | G   | CMO1 ex  |                                        | x      |
-| 2026 Russian MO Grade10 P5     | C   | 联赛? ex   | 大方向(是或否)；构造                            | x      |
-| 2018 Serbia MO P1              | G   | 联赛1- ex  | 三角巧算                                   | x      |
-| 2023 Bulgaria EGMO TST Day1 P1 | G   | 联赛0 ex   | 圆幂                                     | x      |
-| 2022 Balkan MO Shortlist G2    | G   | 联赛0 ex   | 圆幂                                     | x      |
-| 2022 Balkan MO                 | G   | 联赛1- ex  | Pascal；三角暴算                            | x      |
-| 2025 Turkey MO P4              | Ac  | 联赛3+     | 还没做                                    | 联赛6-3‘ |
-| 2022 Turkey MO P3              | A   | 联赛3+     | 还没做                                    | 联赛6-3  |
-| 2025 Ukraine MO P3             | N   | 联赛2      | $d$ 个因数等差数列<br>至少 $2d-2$ 个因数           | 联赛6-2  |
-| 2026 Ukraine MO P12            | N   | 联赛4      | $\sigma(n-a)(n+b)\ n^2 - ab$           | 联赛5-4  |
-| 2026 Ukraine MO P5 改           | N   | 联赛4-     | 数码和；同余结构                               | 联赛4-4  |
-| 2012 Canada MO P5              | C   | 联赛3+     | 【插书 $2^{n-1}-1$】                       | 联赛4-3  |
-| 数之谜 代数原创 244                   | A   | 联赛2-     | 形式化简【将n改为m】                            | 联赛4-2  |
-| 2019 Balkan MO Shortlist G3    | G   | 联赛1      | 方向性导角；同一                               | 联赛4-1  |
-| 2019 Canada MO P5              | C   | 联赛3.5    | 策略；二部图与奇圈                              | 联赛3-4  |
-| 2020 Canada MO P4              | N   | 联赛3+     | 密度估计                                   | 联赛3-3  |
-| 数之谜 代数原创 139                   | A   | 联赛2      | 二次型 比较系数                               | 联赛3-2  |
-| 2022 Iran GeoMO (m) P3         | G   | 联赛2-     | 基本功 倒比例                                | 联赛3-1  |
-| 2026 Russian MO Grade09 P7     | C   | 联赛3.5    | 【$\sqrt R + \sqrt B$】                  | 联赛2-4  |
-| 2019 Bulgaria MO P3            | N   | 联赛3      | $m\|\{a_n\} 2m$ 进制数码和<br>密度估计          | 联赛2-3  |
-| 2025 Iran GeoMO (m) P3         | G   | 联赛2      | 5-4 点共圆；三角计算                           | 联赛2-2  |
-| 2019 Silk Road MO P2           | A   | 联赛1-     | 形式化简 必要关键                              |        |
-| 2024 Turkey TST P8             | N   | 联赛4      | $\sigma(a_0.a_{n-1})\|\sigma(a_0.a_n)$ | 联赛1-4  |
-| 2023 Brazil MO P5              | C   | 联赛3-     | 策略【点涂色 连续删】                            | 联赛1-3  |
-| 2022 Balkan MO Shortlist G4    | G   | 联赛2(+)   | 基本功 倒比例                                | 联赛1-2  |
-| 数之谜 二试模拟9 P1                   | Ac  | 联赛1      | 猜取等 放缩直觉                               | 联赛1-1  |
-| 2025 India MO P4               | A   | 联赛1      | $\max \|a_n+a_{n+1}\| > t \|a_n\|$     |        |
-| 2025 Japan MO P1               | A   | 联赛1      | $\|a_k-a_{k+n}\|\geq 1$                | 联赛2-1  |
-| 数之谜 数论原创 205                   | N   | 联赛3-     | $a^b+1 \in S$ 欧拉定理                     |        |
-| 2026 Russian MO Grade10 P4     | C   | CMO2     | 博弈 猜答案 策略 配对                           |        |
-| 2014 Canada MO P5              | C   | CMO3-    | 策略，连续选数 $\pm 1$                        |        |
-| 2024 Ukraine MO P2             | N   | 联赛1+     | 二进制                                    |        |
-| 2024 Iran TST P5               | N   | CMO2     | 还没做                                    |        |
-| 2024 Bulgaria MO P1            | N   | 联赛2      | 还没做                                    |        |
-| 2023 Bulgaria MO P5            | A   | 联赛1      | 还没做                                    |        |
-| 2019 Bulgaria MO P2            | G   | 联赛2+     | 还没做                                    |        |
-| 数之谜 二试模拟13 P4                  | N   | 联赛4      | 还没做                                    |        |
-| 2026 Japan MO P2               | N   | 联赛2      | 互质最小奇数                                 |        |
-| 2026 Russian MO Grade10 P7     | Nc  | CMO1.5   | 坑 整数多项式斜率                              |        |
-| 2026 Russian MO Grade10 P3     | G   | CMO1     | 三角，位似                                  |        |
-| 2026 Russian MO Grade09 P3     | G   | CMO2     | 三角暴算                                   |        |
-| 2026 Russian MO Grade09 P4     | C   | CMO1     | 图论 染色                                  |        |
-| 2026 Russian MO Grade10 P2     | Ac  | 联赛1-     | 写过程                                    |        |
-| 2026 Russian MO Grade11 P5     | Ac  | 联赛1 (ex) | 组合问题代数化                                |        |
-| 2021 Turkey MO P5              | N   | 联赛3-     | Euler 最大素因子卡幂次                         |        |
-| 2019 Canada MO P4              | A   | 联赛2      | $\|a_i - ka_{i+1}-a_{i+2}\|$           |        |
+| 题目                               | 类别  | 类型&难度    | 知识点                                    | 组卷    |
+| -------------------------------- | --- | -------- | -------------------------------------- | ----- |
+| 2023 St Petersburg P6            | G   | CMO1 ex  |                                        | x     |
+| 2026 Russian MO Grade10 P5       | C   | 联赛? ex   | 大方向(是或否)；构造                            | x     |
+| 2018 Serbia MO P1                | G   | 联赛1- ex  | 三角巧算                                   | x     |
+| 2023 Bulgaria EGMO TST Day1 P1   | G   | 联赛0 ex   | 圆幂                                     | x     |
+| 2022 Balkan MO Shortlist G2      | G   | 联赛0 ex   | 圆幂                                     | x     |
+| 2022 Balkan MO                   | G   | 联赛1- ex  | Pascal；三角暴算                            | x     |
+| 原创 0521 突发奇想                     | C   | 联赛2      |                                        | x     |
+| 2026 Russian MO Grade09 P7       | C   | 联赛3.5    | 【$\sqrt R + \sqrt B$】                  | dead  |
+| 2025 Turkey MO P4                | Ac  | 联赛3+     | 还没做                                    | 联赛7-3 |
+| 2022 Turkey MO P3                | A   | 联赛3.5    | 【$a_i + a_j^2$】分组                      | 联赛6-4 |
+| 2020 Brazil MO P5                | C   | 联赛3-     | 还没做                                    | 联赛6-3 |
+| 2025 Ukraine MO P3               | N   | 联赛2      | $d$ 个因数等差数列<br>至少 $2d-2$ 个因数           | 联赛6-2 |
+| 几何笔记本37，第二组6                     | G   | 联赛1+     | 纯计算题                                   | 联赛6-1 |
+| 2025 Ukraine MO P12              | N   | 联赛4      | $\sigma(n-a)(n+b)\ n^2 - ab$           | 联赛5-4 |
+| 数之谜 组合原创14                       | C   | 联赛2.5    |                                        | 联赛5-3 |
+| Unknown G1                       | G   | 联赛2      | 投影视角、蝴蝶定理                              | 联赛5-2 |
+| 2025 India MO P4                 | A   | 联赛1      | $\max \|a_n+a_{n+1}\| > t \|a_n\|$     | 联赛5-1 |
+| 2026 Ukraine MO P5 改             | N   | 联赛4-     | 数码和；同余结构                               | 联赛4-4 |
+| 2012 Canada MO P5                | C   | 联赛3+     | 【插书 $2^{n-1}-1$】                       | 联赛4-3 |
+| 数之谜 代数原创 244                     | A   | 联赛2-     | 形式化简【将n改为m】                            | 联赛4-2 |
+| 2019 Balkan MO Shortlist G3      | G   | 联赛1      | 方向性导角；同一                               | 联赛4-1 |
+| 数之谜 组合原创5                        | C   | 联赛3      | $1\sim n$  两份去掉一份                      | 联赛3-4 |
+| 2020 Canada MO P4                | N   | 联赛3+     | 密度估计                                   | 联赛3-3 |
+| 数之谜 代数原创 139                     | A   | 联赛2      | 二次型 比较系数                               | 联赛3-2 |
+| 2022 Iran GeoMO (m) P3           | G   | 联赛2-     | 基本功 倒比例                                | 联赛3-1 |
+| 2019 Canada MO P5                | C   | 联赛3.5    | 策略；二部图与奇圈                              | 联赛2-4 |
+| 2019 Bulgaria MO P3              | N   | 联赛3      | $m\|\{a_n\} 2m$ 进制数码和<br>密度估计          | 联赛2-3 |
+| 2025 Iran GeoMO (m) P3           | G   | 联赛2      | 5-4 点共圆；三角计算                           | 联赛2-2 |
+| 2025 Japan MO P1                 | A   | 联赛1      | $\|a_k-a_{k+n}\|\geq 1$                | 联赛2-1 |
+| 2024 Turkey TST P8               | N   | 联赛4      | $\sigma(a_0.a_{n-1})\|\sigma(a_0.a_n)$ | 联赛1-4 |
+| 2023 Brazil MO P5                | C   | 联赛3-     | 策略【点涂色 连续删】                            | 联赛1-3 |
+| 2022 Balkan MO Shortlist G4      | G   | 联赛2(+)   | 基本功 倒比例                                | 联赛1-2 |
+| 数之谜 二试模拟9 P1                     | Ac  | 联赛1      | 猜取等 放缩直觉                               | 联赛1-1 |
+| 2019 Silk Road MO P2             | A   | 联赛1-     | 形式化简 必要关键                              |       |
+| 数之谜 数论原创 205                     | N   | 联赛3-     | $a^b+1 \in S$ 欧拉定理                     |       |
+| 2026 Russian MO Grade10 P4       | C   | CMO2     | 博弈 猜答案 策略 配对                           |       |
+| 2014 Canada MO P5                | C   | CMO3-    | 策略，连续选数 $\pm 1$                        |       |
+| 2024 Ukraine MO P2               | N   | 联赛1+     | 二进制                                    |       |
+| 2024 Iran TST P5                 | N   | CMO2     | 还没做                                    |       |
+| 2024 Bulgaria MO P1              | N   | 联赛2      | 还没做                                    |       |
+| 2023 Bulgaria MO P5              | A   | 联赛1      | 还没做                                    |       |
+| 2019 Bulgaria MO P2              | G   | 联赛2+     | 还没做                                    |       |
+| 数之谜 二试模拟13 P4                    | N   | 联赛4      | 还没做                                    |       |
+| 2026 Japan MO P2                 | N   | 联赛2      | 互质最小奇数                                 |       |
+| 2026 Russian MO Grade10 P7       | Nc  | CMO1.5   | 坑 整数多项式斜率                              |       |
+| 2026 Russian MO Grade10 P3       | G   | CMO1     | 三角，位似                                  |       |
+| 2026 Russian MO Grade09 P3       | G   | CMO2     | 三角暴算                                   |       |
+| 2026 Russian MO Grade09 P4       | C   | CMO1     | 图论 染色                                  |       |
+| 2026 Russian MO Grade10 P2       | Ac  | 联赛1-     | 写过程                                    |       |
+| 2026 Russian MO Grade11 P5       | Ac  | 联赛1 (ex) | 组合问题代数化                                |       |
+| 2021 Turkey MO P5                | N   | 联赛3-     | Euler 最大素因子卡幂次                         |       |
+| 2019 Canada MO P4                | A   | 联赛2      | $\|a_i - ka_{i+1}-a_{i+2}\|$           |       |
+| 原创 0515 小荷讨论班 改                  | C   | 联赛4      |                                        |       |
+| Unknown G2<br>（2020 POGCHAMP P1） | G   | 联赛2-     | 导角、根轴                                  |       |
+| 几何笔记本36，第二组10                    | G   | 联赛2      |                                        |       |
+| 几何笔记本25，第二组3                     | G   | 联赛2      |                                        |       |
+| 2025 Ukraine MO P15              | G   | 联赛2      | 还没做                                    |       |
+| 2022 Turkey MO P5                | G   | 联赛2      | 还没做                                    |       |
+| 2022 Turkey MO P1                | G   | 联赛1      | 还没做                                    |       |
+| 2019 IMOSL A4                    | A   | 联赛3      | 还没做                                    |       |
+| 2022 Brazil MO P6                | C   | CMO2(?)  | 还没做                                    |       |
+| 2023 Brazil MO P2                | G   | 联赛1      |                                        |       |
+| 2021 Brazil MO P5                | N   | 联赛3      | 标准韦达跳跃                                 |       |
+| 2020 India MO P4                 | A   | 联赛1.5    | $2 + a_1 + \cdots \leq a_1 \cdots a_n$ |       |
+|                                  |     |          |                                        |       |
 ### 2026 Ukraine MO P5 改
 
 给定正整数 $T\geq 2$。求所有的正整数 $m$，使得对任意正整数 $n$，$\{S_T(kn)\}_{k \in \mathbb N_+}$ 遍历 $\text{mod} \ m$ 的完全剩余系。其中，$S_T(x)$ 是 $x$ 在 $T$ 进制下的数码和，也就是说，若设 $x$ 的 $T$ 进制表示为  $x = \sum_{i=0}^s c_i T^i$，$c_i \in\{0, 1, \cdots, K-1\}$ ，则 $S_T(x) = \sum_{i=0}^s c_i$。
 
 （当 $T = 10,m = 2$ 时，为 2026 Ukraine MO P5）
 
+### 0515 小荷讨论班 改
+
+对于简单无向图 $G=G(V,E)$，记 $l(G)$ 为 $G$ 中的最长路径的长度（路径的长度定义为路径包含的边的数量）。称某条不在 $E$ 中的边 $e \notin E$ 是图 $G$ 的“增边”，如果添加了这条边之后的图 $G'=G(V, E \cup \{e\})$ 满足 $l(G') > l(G)$。
+
+假设简单无向图 $G$ 没有哈密顿路（即 $l(G) < n-1$），并且对于任意的点集 $U \subset V$ 且 $|U| \leq k$，有 $|N(U)| \geq 2 |U|$，其中
+$$
+N(U):= \{ x \in V \setminus U: \text{存在 } x \in U \text{ 使得 } xy \in E\}
+$$
+是点集 $U$ 的所有邻居。求证：$G$ 中的“增边”数量至少为 $\frac{(k+1)(k+2)}{2}$。
+
+### 0521 突发奇想
+记
+$$
+S_n = \{ (x_1, \cdots, x_n):\{x_i\}_{i=1}^n = \{1,2, \cdots, n\}\}
+$$
+是 $\{1, \cdots, n\}$ 的所有排列构成的集合；对 $x, y \in S_n$，定义 $d(x,y)$ 是最小的非负整数 $d$，使得能将 $x$ 和 $y$ 分别切成 $d+1$ 段，使得切开之后的内容相等。称 $d(x,y)$ 为 $x$ 与 $y$ 之间的距离。
+
+如，$x$ 与 $x$ 之间的距离为 $0$；$(1,2,3,4)$ 与 $(3,4,1,2)$ 距离为 $1$，因为两者可以切成 $(1,2)$ 和 $(3,4)$；$(1,2,3,4)$ 与 $(4,3,2,1)$ 距离为 $3$.
+
+随机抽取 $x, y \in S_n$.  求 $\mathbb E d(x,y)$
+
+
+## 几何
+### 先导角
+
+### 根轴
+垂直关系：连心线垂直于相交弦
+### 共圆
+圆幂；导角；三弦定理；五点共圆推四点共圆
