@@ -49,6 +49,10 @@ title: 教师测评
 <p align="right"><sub style="color: gray;">写于 2026-05-06</sub></p>
 
 ### 常微分方程 刘保平
+
+
+
+<p align="right"><sub style="color: gray;">写于 2026-06-04</sub></p>
 ### 科学计算中的量子算法 安东
 
 安东老师坐在讲台上，一边在导入了 Slide 的平板上推导公式，一边用着一口清晰流利的普通话做详细解释。这是我如今想到安东老师的印象。
