@@ -12,16 +12,16 @@ title: 课程记录和测评
 - 1分：误人子弟、使人厌学。
 ### 专业课
 
-- **[[26Spring Ordinary Differential Equation lbp|常微分方程]]** · 刘保平 4.5
-- **[[26Spring Applied Stochastic Analysis ly|应用随机分析]]** · 刘勇 4.6
-- **[[Finish without grade 26Spring Quantum Algorithm ad|科学计算中的量子算法]]** · 安东 4.4
-- **[[26Spring Functional Analysis oyzm|泛函分析]]** · 欧阳智萌 3.0
-- **[[Finish without grade 26Spring Statistical Thinking mw|统计思维]]** · 苗旺 2.0
-- **[[Finish 26Spring Functional Analysis gb|泛函分析 (清华)]]** · 归斌 `旁听` 5.0
+- **[[26Spring Ordinary Differential Equation lbp|常微分方程]]** · 刘保平 4.5【施工完毕】
+- **[[26Spring Applied Stochastic Analysis ly|应用随机分析]]** · 刘勇 4.6【待施工】
+- **[[26Spring Quantum Algorithm ad|科学计算中的量子算法]]** · 安东 4.4【施工完毕，等待出分】
+- **[[26Spring Functional Analysis oyzm|泛函分析]]** · 欧阳智萌 3.0【待施工】
+- **[[26Spring Statistical Thinking mw|统计思维]]** · 苗旺 2.0【施工完毕，等待出分】
+- **[[26Spring Functional Analysis gb|泛函分析 (清华)]]** · 归斌 `旁听` 5.0
 
 ### 非专业课
 
-- **[[26Spring Traditional Garden dyg|中国古典园林赏析]]** · 董豫赣 5.0
-- **[[Finish 26Spring Greek Myths sxw|希腊罗马神话赏析]]** · 沙筱薇 4.0
+- **[[26Spring Traditional Garden dyg|中国古典园林赏析]]** · 董豫赣 5.0【待施工】
+- **[[26Spring Greek Myths sxw|希腊罗马神话赏析]]** · 沙筱薇 4.0【施工完毕，等待出分】
 - **电子游戏通论** · 陈江 `中期退课`
 - **毛概** · 黄俊立
