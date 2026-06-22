@@ -15,7 +15,7 @@ title: Current
 - 常微分方程课后会随机刷新[[Notes of ODE|我对课程内容的理解与补充]]；
 - 部分 [[Notes of Applied Stochastic Analysis|应用随机分析笔记]]
 - ~~电子游戏通论~~ 已中期退课；古典园林赏析 自选 PF
-- [[Teacher Review Home Page|教师测评]]
+- [[Teacher Reviews Home Page|教师测评]]
 
 ## 下学期课表
 - 专业课：

@@ -1,0 +1,27 @@
+---
+title: 课程记录和测评
+---
+> 列举了上过的课程；课程名链接到对应的测评（若有）。
+## 26 春
+
+老师授课水平的评分标准：
+- 5分：不可替代性。极强个人魅力和独到见解；使我全神贯注，生怕错过一句话；因为喜欢一个老师而改变对一门学科、一个领域的看法。
+- 4分：授课行云流水，逻辑清晰、重点突出；时常给出新观点、新视角；上课比自学效率更高。
+- 3分：中规中矩完成教学任务，授课效率低于自学，偶尔给出新联系、新例子；看回放只是为了对齐教学内容、寻找上课重点。
+- 2分：老师的表达能力成为学习的阻碍。理解老师表达意思的精力，超过了理解知识点本身。
+- 1分：误人子弟、使人厌学。
+### 专业课
+
+- **[[26Spring Ordinary Differential Equation lbp|常微分方程]]** · 刘保平 4.5
+- **[[26Spring Applied Stochastic Analysis ly|应用随机分析]]** · 刘勇 4.6
+- **[[Finish without grade 26Spring Quantum Algorithm ad|科学计算中的量子算法]]** · 安东 4.4
+- **[[26Spring Functional Analysis oyzm|泛函分析]]** · 欧阳智萌 3.0
+- **[[Finish without grade 26Spring Statistical Thinking mw|统计思维]]** · 苗旺 2.0
+- **[[Finish 26Spring Functional Analysis gb|泛函分析 (清华)]]** · 归斌 `旁听` 5.0
+
+### 非专业课
+
+- **[[26Spring Traditional Garden dyg|中国古典园林赏析]]** · 董豫赣 5.0
+- **[[Finish 26Spring Greek Myths sxw|希腊罗马神话赏析]]** · 沙筱薇 4.0
+- **电子游戏通论** · 陈江 `中期退课`
+- **毛概** · 黄俊立
