@@ -1,9 +1,9 @@
 ---
 title: 应用随机分析笔记
 ---
-> 序号的标号对标刘勇老师的讲义 lectnote26
+> 对 [刘勇老师](https://math.pku.edu.cn/teachers/liuyong/) [[26Spring Applied Stochastic Analysis ly|应用随机分析]] 课程中 Kolmogorov Equation 的理解与图像直观。定义定理的标号对标刘勇老师的讲义 lectnote26
 
-
+> 事后发现，记忆 Kolmogorov Equation 最好的方式其实是自己推导一遍（笑）。
 ## Kolmogorov Equation
 
 本节的目标是直观理解并记忆 Kolmogorov Backward Equation（KBE）和 Kolmogorov Forward Equation（KFE，或称 Fokker-Planck Equation）。

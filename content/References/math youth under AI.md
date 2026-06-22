@@ -1,6 +1,6 @@
 ---
 date: 2026-05-15
-title:
+title: 学数学的少年
 ---
 > 知乎 [“如何评价恽之玮对AI冲击下的数学行业的悲观看法？”](https://www.zhihu.com/question/2023543499937576139) 问题下 [范函子Skyline](https://www.zhihu.com/people/skylinchern) [回答](https://www.zhihu.com/question/2023543499937576139/answer/2038605081554236384) 的复制。
 

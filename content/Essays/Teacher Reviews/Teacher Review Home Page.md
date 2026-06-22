@@ -4,7 +4,23 @@ title: 教师测评
 > 列举了喜欢的课程的测评。
 > 
 > 可能忽略了必要的课程信息（不过应该很容易在其他地方找到）。欢迎私信问我以下任何一门课的选课建议。
-## 25 春
+## 26 春
+### 专业课
+
+- [[26Spring Ordinary Differential Equation lbp|【常微分方程 / ode】刘保平 / lbp]]
+- [[26Spring Applied Stochastic Analysis ly|【应用随机分析 / 应随分】刘勇 / ly]]
+- [[26Spring Quantum Algorithm ad|【科学计算中的量子算法】安东 / ad]]
+- [[26Spring Functional Analysis oyzm|【泛函分析】欧阳智萌 / oyzm]]
+- [[26Spring Statistical Thinking mw|【统计思维 / 统思】苗旺 / mw]]
+- [[26Spring Functional Analysis gb|【泛函分析】清华 归斌（旁听）]]
+
+### 非专业课
+
+- 【中国古典园林赏析 / 中古园】通识 (3类) 董豫赣 / dyg
+- 【希腊罗马神话赏析】英语 (B级) 沙筱薇 / sxw
+- 【电子游戏通论 / 电游通】公选 陈江 / cj（中期退课）
+- 【毛泽东思想与中国特色社会主义理论体系概论 / 毛概】政治 黄俊立 / hjl
+
 ### 泛函分析 归斌（求真，旁听）
 
 归斌老师很高很瘦，四肢细长，头发利落，戴细框眼镜。印象中，他总是穿着无领口短袖 T 恤，浅蓝、浅黄或纯白，上面时常印有简单的图案或英文文字。看上去不像老师，更像一个高年级博士生。
