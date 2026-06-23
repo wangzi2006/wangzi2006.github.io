@@ -1,8 +1,6 @@
 ---
 title: 统计思维 苗旺
 ---
-> 待施工。
-
 ## 课程介绍
 
 **📘课程内容：** 参见 [课程网站](https://math.pku.edu.cn/teachers/mwfy/Teaching/Statisticalthinking/Statisticalthinking.html)。主要包括：
