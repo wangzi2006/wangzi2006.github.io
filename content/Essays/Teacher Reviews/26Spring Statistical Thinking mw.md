@@ -8,6 +8,7 @@ title: 统计思维 苗旺
 - Frequentist Inference and Bayesian Inference; Jackknife and Bootstrap
 - Causal Inference
 - Missing data analysis
+
 前半学期进度缓慢，后半学期进度较快（多归功自老师讲解跳跃）。
 
 
@@ -21,7 +22,7 @@ title: 统计思维 苗旺
 
 **期末**：[试卷原文](https://i.pkuhub.cn/material/1775)。大量原题
 
-**📊给分情况**：未知
+**📊给分情况：** 未知
 ## Impression
 
 本人几乎只在期中期末两个时间点学过这门课，都靠回放 - 截屏 - 跟 AI 交互的方式进行学习。
