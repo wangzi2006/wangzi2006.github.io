@@ -1,7 +1,7 @@
 ---
 title: 课程记录和测评
 ---
-> 列举了上过的课程；课程名链接到对应的测评（若有）。
+> 列举了上过的课程；课程名链接到对应的测评（如有）。
 ## 26 春
 
 老师授课水平的评分标准：
@@ -14,7 +14,7 @@ title: 课程记录和测评
 
 - **[[26Spring Ordinary Differential Equation lbp|常微分方程]]** · 刘保平 4.5【施工完毕】
 - **[[26Spring Applied Stochastic Analysis ly|应用随机分析]]** · 刘勇 4.6【待施工】
-- **[[26Spring Quantum Algorithm ad|科学计算中的量子算法]]** · 安东 4.4【施工完毕，等待出分】
+- **[[26Spring Quantum Algorithm ad|科学计算中的量子算法]]** · 安冬 4.4【施工完毕，等待出分】
 - **[[26Spring Functional Analysis oyzm|泛函分析]]** · 欧阳智萌 3.0【待施工】
 - **[[26Spring Statistical Thinking mw|统计思维]]** · 苗旺 2.0【施工完毕，等待出分】
 - **[[26Spring Functional Analysis gb|泛函分析 (清华)]]** · 归斌 `旁听` 5.0
