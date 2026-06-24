@@ -14,7 +14,7 @@ title: Trajectory
   GPT image 2 的练习。精神与爱欲、索拉里斯星、久远寺有珠尤其惊艳。
 - **2026.03** ｜ 💡 Prompt：[[Gem for AI Yau|AI-Yau]]
   使大语言模型说话像 Yau 的角色设定提示词。仅供图一乐。
-- **2026.03** ｜ 🎮 游戏：数学诗谜（π 节）
+- **2026.03** ｜ 🎮 游戏：[数学诗谜](https://wangzi2006.github.io/Mathematical-Poetry-Riddle-2026-Pi-Day/)（π 节）
   玩家根据诗歌谜题，猜测其描述的数学知识。我很喜欢。
 - **2026.01** ｜ 📺 视频：[从 0.999... = 1 到实数的完备性](https://www.bilibili.com/video/BV1xD6EBYEbJ)
   视觉小说 x manim 科普尝试。定位混乱、节奏糟糕，不建议任何人观看。
