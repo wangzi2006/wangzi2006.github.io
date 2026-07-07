@@ -31,7 +31,7 @@ title: Trajectory
   尝试 [index-tts2](https://github.com/index-tts/index-tts)；中途几近崩溃，然而背景音乐拯救了这个视频。
 - **2025.08** ｜ 📺 视频：[无需歌词也能直击心灵？可视化解密《朝日》旋律](https://www.bilibili.com/video/BV11KenzBEzy)
   目前最满意的作品。唯一在完成之后，还会自己回去反复看的视频。
-- **2025.07** ｜ 📺 视频：[从“当哒当”到胆大党1op，这么丰富的节奏是怎么写出来的？](https://www.bilibili.com/video/BV1fdhuz9Enj)
+- **2025.07** ｜ 📺 视频：[从"当哒当"到胆大党1op，这么丰富的节奏是怎么写出来的？](https://www.bilibili.com/video/BV1fdhuz9Enj)
   暑假期间发现神奇网站，玩了一个下午，做得挺顺畅。
 - **2025.06** ｜ 🎴 海报：《鼓手余命》《金牌得主》《在酒楼上》《我心危》（见朋友圈）
   自学 PS 的成果；后三者都称得上满意，甚至能给外行津津乐道地讲门道（

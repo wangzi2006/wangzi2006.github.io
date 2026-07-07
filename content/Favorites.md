@@ -51,7 +51,7 @@ title: Favorites
 - **2025.07** ｜ 📓 长篇小说 安 · 兰德《源泉》
   
   独立意志的颂歌，创造者的精神脊梁。
-- **2025.04** ｜ 🎤 演讲 [@3Blue1Brown](https://space.bilibili.com/88461692) **[“追逐梦想，并不是人生的全部”](https://www.bilibili.com/video/BV1nZ421W7HS)**
+- **2025.04** ｜ 🎤 演讲 [@3Blue1Brown](https://space.bilibili.com/88461692) **["追逐梦想，并不是人生的全部"](https://www.bilibili.com/video/BV1nZ421W7HS)**
   
   最正确的时间遇到最正确的视频，使我当时对未来的焦虑烟消云散。
 - **2025.03** ｜ 🗯️ 漫画 **《金牌得主》**
@@ -75,7 +75,7 @@ title: Favorites
 - **2024.10** ｜ 💻 galgame **《白色相簿2》**
   
   投射、再回忆与道德枷锁，“善良的人就一定要喝酒吗。”
-- **2024.10** ｜ 📺 b站视频 [@鸢梦](https://space.bilibili.com/174595944) [“前往真夜中”](https://www.bilibili.com/video/BV1Pt421a7vZ) 
+- **2024.10** ｜ 📺 b站视频 [@鸢梦](https://space.bilibili.com/174595944) ["前往真夜中"](https://www.bilibili.com/video/BV1Pt421a7vZ) 
   
   人在热爱中，竟能如此充满生命力。
 - **2024.10** ｜ 📄 短篇小说 鲁迅《在酒楼上》
