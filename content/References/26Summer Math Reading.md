@@ -85,7 +85,7 @@ LERW 与 SLE 的连接可以用 Lawler–Schramm–Werner 的经典结果作为�
 
 更深入的是 **Bottazzini & Gray, Hidden Harmony—Geometric Fantasies: The Rise of Complex Function Theory**。Springer 介绍它是关于复函数论从起源到 1914 年的历史，重点覆盖 Cauchy、Riemann、Weierstrass，也讨论从 d’Alembert 到 Hilbert、Laplace 到 Weyl 的贡献。([Springer Nature Link](https://link.springer.com/book/10.1007/978-1-4614-5725-1?utm_source=chatgpt.com "Hidden Harmony—Geometric Fantasies - Springer Nature"))
 
-如果你想专看 Weierstrass 和 Riemann 的冲突，Bottazzini 的文章 **“Algebraic truths” vs “geometric fantasies”: Weierstrass’ Response to Riemann** 很对胃口。摘要里说，Weierstrass 批评 Riemann 的几何方法，转而坚持以幂级数和“代数真理”作为函数论基础。([arXiv](https://arxiv.org/abs/math/0305022?utm_source=chatgpt.com "\"Algebraic truths\" vs \"geometric fantasies\": Weierstrass' Response to Riemann"))
+如果你想专看 Weierstrass 和 Riemann 的冲突，Bottazzini 的文章 **“Algebraic truths“ vs ”geometric fantasies“: Weierstrass’ Response to Riemann** 很对胃口。摘要里说，Weierstrass 批评 Riemann 的几何方法，转而坚持以幂级数和”代数真理”作为函数论基础。([arXiv](https://arxiv.org/abs/math/0305022?utm_source=chatgpt.com "\"Algebraic truths\" vs \"geometric fantasies\": Weierstrass' Response to Riemann"))
 
 ---
 
