@@ -1,5 +1,13 @@
 @use "./base.scss";
 
+@font-face {
+  font-family: "LXGW WenKai Screen R";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("/static/fonts/LXGWWenKaiScreenR.ttf") format("truetype");
+}
+
 // put your custom CSS here!
 // ============================================
 // Quartz 自定义图片响应式样式
