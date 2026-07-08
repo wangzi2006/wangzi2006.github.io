@@ -19,6 +19,12 @@ li.section-li {
     grid-template-columns: fit-content(9em) 3fr 1fr;
 ```
 
+**顶部留白：** `quartz\styles\variables.scss` 中，修改 `4rem`
+```scss
+$sidePanelWidth: 320px;
+$topSpacing: 4rem; //原始 6rem
+$boldWeight: 700;
+```
 ## 修改字体样式
 
 1. `quartz.config.ts` 中，修改
