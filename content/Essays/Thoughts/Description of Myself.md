@@ -40,3 +40,7 @@ draft: true
 
 
 比喻：盒饭；共享单车；椎名立希（MyGO/鼓手余命十日谭）；市川京太郎（我心里危险的东西）
+
+梦想：[@PiKaChu345](https://space.bilibili.com/180947374/)；[@鸢梦Yumeko](https://space.bilibili.com/174595944)；[@Azuki咔咔](https://space.bilibili.com/172085)
+
+现实人物：zjk；jyh；（远没列完！）
