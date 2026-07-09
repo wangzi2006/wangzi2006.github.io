@@ -1,5 +1,6 @@
 ---
 title: 费曼名言 create & understand 的理解
+date: 2026-05-23
 ---
 > 知乎用户 [罗心澄](https://www.zhihu.com/people/nuclearcarrot) 在问题【怎样理解费曼 What I cannot create, I do not understand 这句话？】下的[回答](https://www.zhihu.com/question/68612969/answer/2041555402391811499)。
 

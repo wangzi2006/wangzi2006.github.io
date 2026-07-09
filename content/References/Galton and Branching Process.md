@@ -2,6 +2,7 @@
 title: 高尔顿与分支过程
 tags:
   - llm
+date: 2026-03-31
 ---
 下面复制了 [[2026-03-31]] 与 Gemini 3 Flash 的 [交互记录](https://aistudio.google.com/app/prompts?state=%7B%22ids%22:%5B%221RKPrxGdSDS9jFa4I5W7aeozkS8rZ2dBK%22%5D,%22action%22:%22open%22,%22userId%22:%22108286630934270053626%22,%22resourceKeys%22:%7B%7D%7D&usp=sharing)。
 

@@ -1,5 +1,6 @@
 ---
 title: 楚健春老师
+date: 2026-04-24
 ---
 > 收录了 [楚健春老师](https://math.pku.edu.cn/teachers/jianchunchu/) 的发言。多摘录自树洞。
 

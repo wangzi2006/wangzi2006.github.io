@@ -14,7 +14,7 @@ title: Current
 ### 数学
 
 - 【06.26-07.04】*An Introduction to Manifolds* (Loring Tu)
-- 【07.08-07.20】*The higher calculus: a history of real and complex analysisfrom Euler to Weierstrass* (Bottazzini)
+- 【07.10-07.20】*The higher calculus: a history of real and complex analysisfrom Euler to Weierstrass* (Bottazzini)
 
 ### 尤克里里
 
@@ -30,7 +30,7 @@ title: Current
 
 - **《门后抽烟的二人》2** 每周四
 - **《正相反的你与我》2** 每周日
-- 《宝贝老板》12（电影）
+- 《与你相恋到生命尽头》 每周二
 - 《淡岛百景》
 - 皮克斯电影
 - 《利群与青岛（醉姿如百合）》
