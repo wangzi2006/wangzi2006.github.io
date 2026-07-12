@@ -20,7 +20,7 @@
 
 ### 非专业课
 
-- **[[26Spring Traditional Garden dyg|中国古典园林赏析]]** · 董豫赣 5.0【待施工】
+- **[[26Spring Traditional Garden dyg|中国古典园林赏析]]** · 董豫赣 5.0 `PF`【施工完毕】
 - **[[26Spring Greek Myths sxw|希腊罗马神话赏析]]** · 沙筱薇 4.0【施工完毕，等待出分】
 - **电子游戏通论** · 陈江 `中期退课`
 - **毛概** · 黄俊立
