@@ -27,6 +27,8 @@ title: Atlas
 
 ### overture4 Day12 - now
 
+- [[2026-07-18]]
+- [[2026-07-17]]
 - [[2026-07-15]]
 
 ### overture4 Day1 - Day11
