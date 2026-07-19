@@ -3,8 +3,8 @@ title: Current
 ---
 ## 待办
 
-- [[26Spring Traditional Garden dyg|中国古典园林赏析课程测评]]
 - [[story framework|小说]] 完成至少一个片段（不过目前完全无心思）
+- Quartz 右侧目录有一个没用的下拉条，将它去掉。
 
 ## 可做的事（26夏）
 
