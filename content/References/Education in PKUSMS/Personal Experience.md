@@ -35,7 +35,7 @@ tags:
   > 还有我最一开始没能学数学，当时在（北大）地球与空间科学。后来即使到了数学系也没有仔细比较过接触数学前后数学给我的感觉。我觉得可能是因为我没有接受过像竞赛这样的训练，所以我以前对数学的想象是自己看书，看课外书，想一想上面的问题，然后感觉本科很多时候，还有后面的很多时候也是差不多这样，自己在图书馆看看书想想问题。所以对数学的感觉我不太好说，我没有一个特别大的冲突，或者是感觉shock的地方，但感觉一直在挣扎，所以就没想那么多，能生存下来就不错了（笑）。
 
 - 2025 年 3 月，[Quanta 挂谷专题](https://www.quantamagazine.org/once-in-a-century-proof-settles-maths-kakeya-conjecture-20250314/)，介绍王虹为什么被挂谷吸引、证明如何逐步推进、其数学意义。
-  
 - 2025 年 7 月，[《国家报》采访](https://elpais.com/ciencia/2025-07-14/cual-es-el-menor-espacio-en-el-que-puede-girarse-una-aguja-hasta-invertir-su-posicion-esta-mujer-ha-resuelto-por-fin-la-conjetura-de-kakeya.html)，法语，相比上一篇文章更简洁，没什么看的必要。
-- 2025 年 11 月，[《世界报》人物专访](https://www.lemonde.fr/sciences/article/2025/11/01/hong-wang-la-mathematicienne-qui-doute_6650844_1650684.html)，法语，需订阅。我将 GPT 概括的主要内容放在[[Le Monde Interview|这里]]
-- 
+- 2025 年 11 月，[《世界报》人物专访](https://www.lemonde.fr/sciences/article/2025/11/01/hong-wang-la-mathematicienne-qui-doute_6650844_1650684.html)，法语，需订阅。我将 GPT 概括的主要内容放在[[Le Monde Interview#一、《世界报》文章详细内容还原|这里]]
+- 2025 年底，[IHES 介绍视频](https://www.linkedin.com/posts/ihes_hong-wang-permanent-professor-of-mathematics-activity-7407371653518667776-5yuC)，没什么看的必要。GPT 概括的主要内容也在[[Le Monde Interview#二、IHES 视频的完整内容还原|这里]]
+- 2026 年，[AWM Sadosky Prize 感言](https://awm-math.org/awards/awm-sadosky-research-prize/awm-sadosky-research-prize-2026)，非常简短的获奖感言，没有看的必要。
