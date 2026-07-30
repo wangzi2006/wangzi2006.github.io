@@ -14,7 +14,10 @@ title: Current
 ### 数学
 
 - 【06.26-07.04】*An Introduction to Manifolds* (Loring Tu)
-- 【07.20】*The higher calculus: a history of real and complex analysisfrom Euler to Weierstrass* (Bottazzini)
+- 【07.30-】*The higher calculus: a history of real and complex analysisfrom Euler to Weierstrass* (Bottazzini)
+- 【】*Statistical Physics*, Ch. 1,4,5 (David Tong)
+- 
+
 
 ### 尤克里里
 
