@@ -1,0 +1,4 @@
+project_id = "quartz-annotation-feedback"
+
+[functions.submit-annotation]
+verify_jwt = false

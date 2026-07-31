@@ -6,6 +6,8 @@ prof
 tsconfig.tsbuildinfo
 .obsidian
 .quartz-cache
+supabase/.temp/
+supabase/.env*
 private/
 .replit
 replit.nix

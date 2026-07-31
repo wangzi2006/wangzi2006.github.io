@@ -5,7 +5,14 @@ import * as Component from "./quartz/components"
 export const sharedPageComponents: SharedLayout = {
   head: Component.Head(),
   header: [],
-  afterBody: [],
+  afterBody: [
+    Component.AnnotationFeedback({
+      endpoint:
+        process.env.ANNOTATION_ENDPOINT ??
+        "https://ollrobgyhebxlkqbydmk.supabase.co/functions/v1/submit-annotation",
+      turnstileSiteKey: process.env.TURNSTILE_SITE_KEY ?? "0x4AAAAAAECcwAZe_sXz41T0",
+    }),
+  ],
   footer: Component.Footer({
     links: {
       GitHub: "https://github.com/jackyzha0/quartz",
