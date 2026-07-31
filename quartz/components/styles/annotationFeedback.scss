@@ -60,6 +60,7 @@
 .annotation-panel {
   box-sizing: border-box;
   width: var(--annotation-panel-width);
+  height: fit-content;
   max-height: calc(100vh - 4rem);
   overflow-y: auto;
   border: 1px solid var(--lightgray);
@@ -74,11 +75,13 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 1rem 1.2rem 0.7rem;
+    min-height: 0;
+    margin: 0;
+    padding: 0.7rem 1.2rem 0.6rem;
     border-bottom: 1px solid var(--lightgray);
 
     & > h3 {
-      margin: 0;
+      margin: 0 !important;
       font-size: 1rem;
     }
   }
@@ -101,7 +104,7 @@
 }
 
 .annotation-quote {
-  margin: 1rem 1.2rem;
+  margin: 0.8rem 1.2rem;
   padding: 0.65rem 0.85rem;
   border-left: 2px solid var(--secondary);
   background: var(--highlight);
@@ -117,7 +120,7 @@
   display: flex;
   flex-direction: column;
   gap: 0.9rem;
-  padding: 0 1.2rem 1.2rem;
+  padding: 0 1.2rem 0.9rem;
 
   & > label {
     display: flex;
@@ -154,8 +157,14 @@
 
   & > footer {
     display: flex;
+    grid-area: auto;
     justify-content: flex-end;
     gap: 0.6rem;
+    min-width: 0;
+    margin: 0;
+    padding: 0;
+    opacity: 1;
+    text-align: initial;
 
     & > button {
       border: 1px solid var(--lightgray);
