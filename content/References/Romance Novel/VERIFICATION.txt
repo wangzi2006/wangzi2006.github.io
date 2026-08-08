@@ -1,0 +1,42 @@
+branch/field: export_links / YAML draft
+
+RESULT
+- links.txt entries: 112 (110 article links, 1 book link, 1 subject link)
+- fetched source items: 177 (127 articles, 50 book chapters)
+- full browser-member extractions used: 65/65 nonempty
+- exported Markdown: 132 (HuLiYouDou 34, LiuYunDuan 98)
+- draft: True: 132/132
+- copied images: 0
+- long novel: 僚机低空飞行, 50 chapters in 5 files
+- staged-to-target verification: COPY_VERIFY expected=132 hash_match=132 missing=0 (exit 0)
+
+FOUR PATHS
+MODIFIED_FILE: E:\Ceva\Important\4-college\6-entertain\8-Quartz\quartz\content\References\Romance Novel\LiuYunDuan\Atypical Marriage.md
+DIFF_FILE: E:\Ceva\Important\4-college\6-entertain\8-Quartz\quartz\content\References\Romance Novel\EXPORT_DIFF.patch
+VERIFICATION: E:\Ceva\Important\4-college\6-entertain\8-Quartz\quartz\content\References\Romance Novel\VERIFICATION.txt
+ROLLBACK: E:\Ceva\Important\4-college\6-entertain\8-Quartz\quartz\content\References\Romance Novel\ROLLBACK.sh
+
+HASHES
+ORIGINAL_SHA256=B937D67ED7F0E90DEAD817A2FCD143C1FC50B3ECFC08FA94F2984E4B00CBCD48
+MODIFIED_SHA256=1A6F8B8F33AE74E2F51546C70AB7635091275A1829C2EE1BCF7282280174FB00
+
+BASELINE
+Command: powershell.exe -NoProfile -ExecutionPolicy Bypass -File work\test_export_state.ps1 -Mode BASELINE -Root "C:\Users\31675\Documents\Codex\2026-08-08\https-h-gushi-cn-main-app-2\work\rollback-test-links"
+Input: restored rollback-test fixture
+Literal output: BASELINE fox_md=0 liu_md=1 total_md=1 draft_true=0 images=0 book_files=0 book_chapters=0
+Exit status: 0
+
+MODIFIED
+Command: powershell.exe -NoProfile -ExecutionPolicy Bypass -File work\test_export_state.ps1 -Mode MODIFIED -Root "E:\Ceva\Important\4-college\6-entertain\8-Quartz\quartz\content\References\Romance Novel"
+Input: target Romance Novel directory
+Literal output: MODIFIED fox_md=34 liu_md=98 total_md=132 draft_true=132 images=0 book_files=5 book_chapters=50
+Exit status: 0
+
+ROLLBACK
+Command: powershell.exe -NoProfile -ExecutionPolicy Bypass -Command "& ([scriptblock]::Create((Get-Content -LiteralPath '.\ROLLBACK.sh' -Raw)))"
+Working directory/input: C:\Users\31675\Documents\Codex\2026-08-08\https-h-gushi-cn-main-app-2\work\rollback-test-links
+Literal output: ROLLBACK_OK target=C:\Users\31675\Documents\Codex\2026-08-08\https-h-gushi-cn-main-app-2\work\rollback-test-links
+Exit status: 0
+Verification command result: ROLLBACK_VERIFY exit=0 fox_md=0 liu_md=1 restored_sha256=B937D67ED7F0E90DEAD817A2FCD143C1FC50B3ECFC08FA94F2984E4B00CBCD48
+Verification exit status: 0
+Restored behavior/status: generated HuLiYouDou files and generated LiuYunDuan files were removed; the pre-existing Atypical Marriage.md was restored byte-for-byte with its original SHA-256.

@@ -1,5 +1,6 @@
 ---
 title: Quartz 页面自定义
+draft: true
 ---
 ## 快捷参数
 
@@ -50,3 +51,11 @@ $boldWeight: 700;
   src: url("/static/fonts/LXGWWenKaiScreenR.ttf") format("truetype");
 }
 ```
+
+## 查看所有评论
+
+点击[链接](https://dash.cloudflare.com/56ce2eb7f042af5efa7e3621878a523e/workers/d1/databases/b811ce8c-81e3-4830-8ce0-aa9b92039bd7/console)，在下方命令行输入
+```SQL
+select * from annotation_inbox;
+```
+即可。

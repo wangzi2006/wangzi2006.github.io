@@ -1,0 +1,36 @@
+branch/field: export/markdown — draft=True, text-only future exports, date, title, body, chapter headings, Obsidian cross-links
+
+MODIFIED_FILE: E:\Ceva\Important\4-college\6-entertain\8-Quartz\quartz\content\References\Romance Novel\ChiLunYouZi\Contract Marriage Madman.md
+DIFF_FILE: E:\Ceva\Important\4-college\6-entertain\8-Quartz\quartz\content\References\Romance Novel\ChiLunYouZi\EXPORT_DIFF.patch
+VERIFICATION.txt: E:\Ceva\Important\4-college\6-entertain\8-Quartz\quartz\content\References\Romance Novel\ChiLunYouZi\VERIFICATION.txt
+executable ROLLBACK.sh: E:\Ceva\Important\4-college\6-entertain\8-Quartz\quartz\content\References\Romance Novel\ChiLunYouZi\ROLLBACK.sh
+
+BASELINE
+Command: Python SHA256 manifest generation for all active Markdown files before adding draft=True
+Input: 54 active Markdown files copied to work\baseline-draft-true\ChiLunYouZi
+Literal output/result: BASELINE files=54 manifest_sha256=D7B979787E5CEF90A3A7BE5608DFF1AD7F0D293722A454DBCC434D9D9F6D1E8F
+Exit status: 0
+
+MODIFIED
+Command: Python validation of active Markdown files, draft=True, image omission in new files, and three-digit chapter headings
+Input: target ChiLunYouZi directory after export
+Literal output/result: PASS files=56 draft_true=56 new_files=2 new_images=0 sink_chapters=70
+Exit status: 0
+Modified Contract Marriage Madman.md SHA256: 1388F11741B6779384FA0D567185BBD945A82B5CB298CB3BD54DBDBED31664B1
+
+ROLLBACK
+Command: "C:\Program Files\Git\bin\bash.exe" -lc '"$1" "$2"' _ ROLLBACK.sh C:/Users/31675/Documents/Codex/2026-08-08/https-h-gushi-cn-main-app-2/work/rollback-test-20260808f/ChiLunYouZi
+Input: independent copy containing 56 modified Markdown files plus the 54-file pre-change backup
+Literal output/result: ROLLBACK_OK target=C:/Users/31675/Documents/Codex/2026-08-08/https-h-gushi-cn-main-app-2/work/rollback-test-20260808f/ChiLunYouZi
+Literal output/result: ROLLBACK_VERIFY active_files=54 restored_hashes=54/54 draft_true=0
+Exit status: 0
+Restored behavior/status: all 54 pre-change Markdown files are restored byte-for-byte; the two new files are removed; draft fields return to their prior state.
+
+CURRENT EXPORT SCOPE
+- Contract Marriage Handbook: 43/43 short stories
+- Big Qingyi: 2/2 parts, with reciprocal Obsidian links
+- Love in My Palm: 35/35 chapters in 4 files
+- Sink with Me: chapters 001–070 in 7 files
+- All 56 active Markdown files now contain draft: True
+- New files omit images
+- Pending in later continuation: Sink with Me chapters 071–100; all works by 狐狸有豆; 107 non-series short stories by 流云断
