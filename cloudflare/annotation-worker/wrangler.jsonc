@@ -1,0 +1,23 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "quartz-annotation-feedback",
+  "main": "src/index.ts",
+  "compatibility_date": "2026-08-08",
+  "workers_dev": true,
+  "vars": {
+    "ALLOWED_ORIGINS": "https://wangzi2006.github.io",
+    "RESEND_FROM": "Quartz <onboarding@resend.dev>",
+    "ANNOTATION_NOTIFY_EMAIL": "3167564758@qq.com",
+  },
+  "d1_databases": [
+    {
+      "binding": "DB",
+      "database_name": "quartz-annotations",
+      "database_id": "b811ce8c-81e3-4830-8ce0-aa9b92039bd7",
+      "migrations_dir": "migrations",
+    },
+  ],
+  "observability": {
+    "enabled": true,
+  },
+}

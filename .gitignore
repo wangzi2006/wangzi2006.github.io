@@ -8,6 +8,7 @@ tsconfig.tsbuildinfo
 .quartz-cache
 supabase/.temp/
 supabase/.env*
+cloudflare/**/.dev.vars*
 private/
 .replit
 replit.nix

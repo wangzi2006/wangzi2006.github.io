@@ -9,7 +9,7 @@ export const sharedPageComponents: SharedLayout = {
     Component.AnnotationFeedback({
       endpoint:
         process.env.ANNOTATION_ENDPOINT ??
-        "https://ollrobgyhebxlkqbydmk.supabase.co/functions/v1/submit-annotation",
+        "https://quartz-annotation-feedback.annotation-worker.workers.dev",
       turnstileSiteKey: process.env.TURNSTILE_SITE_KEY ?? "0x4AAAAAAECcwAZe_sXz41T0",
     }),
   ],
