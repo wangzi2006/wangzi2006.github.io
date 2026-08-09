@@ -25,7 +25,7 @@ title: Current
 ### 数学
 
 - 【06.26-07.04】*An Introduction to Manifolds* (Loring Tu)
-- 【07.30-】*The higher calculus: a history of real and complex analysisfrom Euler to Weierstrass* (Bottazzini)
+- 【07.30; 08.09-】*The higher calculus: a history of real and complex analysisfrom Euler to Weierstrass* (Bottazzini)
 - 【】*Statistical Physics*, Ch. 1,4,5 (David Tong)
 - 
 
@@ -42,8 +42,14 @@ title: Current
 
 ### 追番
 
-- **《门后抽烟的二人》2** 每周四
+- **《门后抽烟的二人》** 每周四
 - **《正相反的你与我》2** 每周日
+- 穹庐下的魔女
+- 描绘直至生命尽头
+- 再见菈菈
+- 花织同学转身后还想干架
+- 向日葵马戏团
+- 梦限大
 - 《与你相恋到生命尽头》 每周二
 - 《淡岛百景》
 - 皮克斯电影
