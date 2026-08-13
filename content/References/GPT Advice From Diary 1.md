@@ -1,5 +1,5 @@
 ---
-title: GPT 依据日记给出的建议
+title: GPT 建议1
 date: 2025-11-13
 tags:
   - llm
