@@ -1,20 +1,15 @@
 # Quartz annotation Worker
 
-Cloudflare Worker + D1 backend for private Quartz text annotations.
+Production backend for private Quartz text annotations. The current architecture,
+configuration, recovery boundary, and operator workflow are documented in
+[`docs/annotation-feedback-setup.md`](../../docs/annotation-feedback-setup.md).
 
-Required Worker secrets:
-
-- `TURNSTILE_SECRET_KEY`
-- `RESEND_API_KEY`
-
-The public site origin, sender, and notification recipient are configured through
-`ALLOWED_ORIGINS`, `RESEND_FROM`, and `ANNOTATION_NOTIFY_EMAIL` in `wrangler.jsonc`.
-
-Useful commands:
+Run commands from this directory. Required Worker secrets are
+`TURNSTILE_SECRET_KEY` and `RESEND_API_KEY`; never commit their values.
 
 ```powershell
-npx wrangler d1 migrations apply quartz-annotations --remote
-npx wrangler deploy
-npx wrangler d1 execute quartz-annotations --remote --command "select * from annotation_inbox order by 日期 desc"
-npx wrangler d1 export quartz-annotations --remote --output private/quartz-annotations.sql
+npx --yes wrangler@latest whoami
+npx --yes wrangler@latest d1 migrations apply quartz-annotations --remote
+npx --yes wrangler@latest deploy
+npx --yes wrangler@latest d1 execute quartz-annotations --remote --command 'select * from annotation_inbox;'
 ```

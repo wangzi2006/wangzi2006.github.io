@@ -4,6 +4,8 @@
 
 Quartz is a set of tools that helps you publish your [digital garden](https://jzhao.xyz/posts/networked-thought) and notes as a website for free.
 
+This repository is the personal Quartz fork behind [wangzi2006.github.io](https://wangzi2006.github.io/). Pushes to `v4` publish the site with GitHub Pages. Its private text-annotation system is operated through Cloudflare Worker + D1; see [the annotation runbook](docs/annotation-feedback-setup.md).
+
 🔗 Read the documentation and get started: https://quartz.jzhao.xyz/
 
 [Join the Discord Community](https://discord.gg/cRFFHYye7t)

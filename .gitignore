@@ -9,6 +9,7 @@ tsconfig.tsbuildinfo
 supabase/.temp/
 supabase/.env*
 cloudflare/**/.dev.vars*
+cloudflare/**/.wrangler/
 private/
 .replit
 replit.nix
