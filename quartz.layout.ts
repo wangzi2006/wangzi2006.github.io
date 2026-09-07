@@ -48,7 +48,12 @@ export const defaultContentPageLayout: PageLayout = {
     Component.Explorer(),
   ],
   right: [
-    Component.Graph(),
+    Component.RecentNotes({
+      title: "最近更新",
+      limit: 3,
+      showTags: false,
+      filter: (page) => page.slug !== "index",
+    }),
     Component.DesktopOnly(Component.TableOfContents({ collapsible: false })),
     Component.Backlinks(),
   ],
